@@ -22,10 +22,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
       >
         <Navbar />
-        {children}
+        <main className="flex-grow">{children}</main>
+        <Footer />
       </body>
     </html>
   );
@@ -34,12 +35,12 @@ export default function RootLayout({ children }) {
 function Navbar() {
   return (
     <div
-      className="sticky top-0 bg-#07407B z-50 p-3 flex flex-row gap-4 text-white text-xl mb-2 items-center font-montserrat"
+      className="sticky top-0 bg-#07407B z-50 p-1.5 flex flex-row gap-4 text-white text-xl mb-2 items-center font-montserrat"
       style={{ backgroundColor: "#07407B" }}
     >
       <div>
         <Link href="/">
-          <Image src="/images/evlogo.png" alt="evlogo" width="65" height="65" />
+          <Image src="/images/evlogo.png" alt="evlogo" width="60" height="60" />
         </Link>
       </div>
       <div className="flex gap-10 ml-auto mr-10">
@@ -59,6 +60,14 @@ function Navbar() {
           <Link href="/contacts">CONTACT US</Link>
         </div>
       </div>
+    </div>
+  );
+}
+
+function Footer() {
+  return (
+    <div className="bg-gray-100 flex flex-col flex-shrink-0">
+      <p>contact us at asdfas for any inquiries.</p>
     </div>
   );
 }
