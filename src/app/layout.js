@@ -35,7 +35,7 @@ export default function RootLayout({ children }) {
 function Navbar() {
   return (
     <div
-      className="sticky top-0 bg-#07407B z-50 p-1.5 flex flex-row gap-4 text-white text-xl mb-2 items-center font-montserrat"
+      className="sticky top-0 z-50 p-1.5 flex flex-row gap-4 text-white text-xl mb-2 items-center font-montserrat"
       style={{ backgroundColor: "#07407B" }}
     >
       <div>
@@ -66,7 +66,7 @@ function Navbar() {
 
 function Footer() {
   return (
-    <div className="bg-gray-100 flex flex-col flex-shrink-0">
+    <div className="bg-gray-100 flex flex-col flex-shrink-0 font-montserrat text-black text-center">
       <p>contact us at asdfas for any inquiries.</p>
     </div>
   );
