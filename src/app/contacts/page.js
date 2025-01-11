@@ -4,5 +4,14 @@ export const metadata = {
 };
 
 export default function Contacts() {
-  return <h1>Contacts</h1>;
+  return (
+    <div>
+      {/* section for the car image */}
+
+      {/* section for the contact */}
+      <h1 className="font-bold py-2 text-4xl">Contact</h1>
+      {/* Sponsoring */}
+      {/* Student join */}
+    </div>
+  );
 }

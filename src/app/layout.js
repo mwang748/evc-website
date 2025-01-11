@@ -35,7 +35,7 @@ export default function RootLayout({ children }) {
 function Navbar() {
   return (
     <div
-      className="sticky top-0 z-50 p-1.5 flex flex-row gap-4 text-white text-xl mb-2 items-center font-montserrat"
+      className="sticky top-0 z-50 p-1.5 flex flex-row gap-4 text-white text-xl items-center font-montserrat"
       style={{ backgroundColor: "#07407B" }}
     >
       <div>
@@ -43,7 +43,7 @@ function Navbar() {
           <Image src="/images/evlogo.png" alt="evlogo" width="60" height="60" />
         </Link>
       </div>
-      <div className="flex gap-10 ml-auto mr-10">
+      <div className="flex ml-auto mr-10 space-x-4">
         <div>
           <Link href="/about">ABOUT</Link>
         </div>
