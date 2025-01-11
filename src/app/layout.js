@@ -21,6 +21,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <style>
+          @import
+          url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+        </style>
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
       >
@@ -38,12 +44,12 @@ function Navbar() {
       className="sticky top-0 z-50 p-1.5 flex flex-row gap-4 text-white text-xl items-center font-montserrat"
       style={{ backgroundColor: "#07407B" }}
     >
-      <div className="transition size-12 duration-300 hover:scale-110">
+      <div className="transition duration-300 hover:scale-110">
         <Link href="/">
           <Image src="/images/evlogo.png" alt="evlogo" width="60" height="60" />
         </Link>
       </div>
-      <div className="flex ml-auto mr-10 space-x-7 font-semibold">
+      <div className="flex ml-auto mr-10 gap-10">
         <div className="transition duration-300 hover:text-[#F7931E]">
           <Link href="/about">ABOUT</Link>
         </div>

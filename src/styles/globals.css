@@ -5,12 +5,12 @@
 :root {
   --background: #1a1a1a;
   --foreground: #ffffff;
-  font-size: 1.5vw;
+  /* font-size: 1.5vw; */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #1A1A1A;
     --foreground: #ededed;
   }
 }
@@ -21,7 +21,7 @@ body {
   font-family: Montserrat;
 }
 
-h1 {
+/* h1 {
   background-color: #07407b;
   color: #f7931e;
-}
+} */
