@@ -35,7 +35,7 @@ export default function RootLayout({ children }) {
 function Navbar() {
   return (
     <div
-      className="sticky top-0 z-50 p-1.5 flex flex-row gap-4 text-white text-xl mb-2 items-center font-montserrat"
+      className="sticky top-0 z-50 p-1.5 flex flex-row gap-4 text-white text-xl items-center font-montserrat"
       style={{ backgroundColor: "#07407B" }}
     >
       <div className="transition duration-300 hover:scale-110">
