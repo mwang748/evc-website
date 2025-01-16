@@ -89,7 +89,6 @@ function Footer() {
             preserveAspectRatio="xMidYMid meet"
           >
             <g
-              className=""
               transform="translate(0.000000,448.000000) scale(0.100000,-0.100000)"
               stroke="none"
             >
