@@ -4,17 +4,8 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div
-      className=" overflow-y-auto overflow-x-hidden"
-      style={{ perspective: "10px" }}
-    >
-      <div
-        className="text-center -z-10  relative h-screen bg-fixed bg-center bg-cover"
-        style={{
-          backgroundImage: "url('/images/homepage/sunsetcar.jpg')",
-          transformStyle: "preserve-3d",
-        }}
-      >
+    <div className="">
+      <div className="text-center">
         <header className="text-right pr-12 flex flex-col gap-2 absolute z-10 w-full top-1/4">
           <h2 className="text-[#F7931E] text-8xl font-semibold">
             ILLINI <br />
@@ -25,6 +16,14 @@ export default function Home() {
             Driving innovation to fuel our electric future.{" "}
           </p>
         </header>
+        <Image
+          src="/images/homepage/sunsetcar.jpg"
+          alt="sunsetcar"
+          width="2000"
+          height="2"
+          style={{ objectFit: "cover" }}
+          className="relative z-0"
+        />
       </div>
       <div className="bg-[#F7931E] p-4 flex flex-row pl-20 pr-20 gap-20 h-60 items-center">
         <h2 className="font-semibold text-6xl ">OUR MISSION:</h2>
