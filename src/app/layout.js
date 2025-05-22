@@ -49,7 +49,7 @@ function Navbar() {
           <Image src="/images/evlogo.png" alt="evlogo" width="60" height="60" />
         </Link>
       </div>
-      <div className="flex gap-10 ml-auto mr-10">
+      <div className="flex ml-auto mr-10 gap-10">
         <div className="transition duration-300 hover:text-[#F7931E]">
           <Link href="/about">ABOUT</Link>
         </div>
