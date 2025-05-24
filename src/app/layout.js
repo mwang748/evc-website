@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "../styles/globals.css";
 import Link from "next/link";
 import Image from "next/image";
+import Nav from "./hamburgermenu.js";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -49,7 +50,10 @@ function Navbar() {
           <Image src="/images/evlogo.png" alt="evlogo" width="60" height="60" />
         </Link>
       </div>
-      <div className="flex ml-auto mr-10 gap-10">
+      <div className="md:hidden ml-auto pr-4">
+        <Nav />
+      </div>
+      <div className=" hidden md:flex flex ml-auto mr-10 gap-10 ">
         <div className="transition duration-300 hover:text-[#F7931E]">
           <Link href="/about">ABOUT</Link>
         </div>
