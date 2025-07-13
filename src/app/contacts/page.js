@@ -10,7 +10,7 @@ export default function Contacts() {
     <div className="flex flex-col">
       {/* Title */}
       <Image
-        src="/images/contacts/classiccarcropped.jpg"
+        src="/images/classiccar.jpg"
         alt="Classic Car"
         width={5000}
         height={500}
@@ -143,7 +143,7 @@ export default function Contacts() {
         {/* Right Section - Image */}
         <div className="flex-1 flex justify-center items-center">
           <Image
-            src="/images/contacts/group.jpg"
+            src="/images/group_banner.JPG"
             alt="Contact Us Illustration"
             width={500}
             height={500}
