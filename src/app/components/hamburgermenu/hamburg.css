@@ -1,6 +1,6 @@
 #nav-icon1 {
   width: 25px;
-  height:3vh;
+  height:20px;
   position: relative;
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
@@ -28,7 +28,7 @@
 #nav-icon1 span{
   display: block;
   position: absolute;
-  height: 4px;
+  height: 1.5px;
   width: 100%;
   background: white;
   border-radius: 1px;
