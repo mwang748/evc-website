@@ -17,19 +17,19 @@ function Menu({ isOpen }) {
           <Link href="/">HOME</Link>
         </li>
         <li className="transition duration-300 hover:text-[#F7931E]">
-          <Link href="/pages/about">ABOUT</Link>
+          <Link href="/about">ABOUT</Link>
         </li>
         <li className="transition duration-300 hover:text-[#F7931E]">
-          <Link href="/pages/team">OUR TEAM</Link>
+          <Link href="/team">OUR TEAM</Link>
         </li>
         <li className="transition duration-300 hover:text-[#F7931E]">
-          <Link href="/pages/cars">OUR CARS</Link>
+          <Link href="/cars">OUR CARS</Link>
         </li>
         <li className="transition duration-300 hover:text-[#F7931E]">
-          <Link href="/pages/sponsors">SPONSORS</Link>
+          <Link href="/sponsors">SPONSORS</Link>
         </li>
         <li className="transition duration-300 hover:text-[#F7931E]">
-          <Link href="/pages/contacts">CONTACT US</Link>
+          <Link href="/contacts">CONTACT US</Link>
         </li>
       </ul>
     </div>
