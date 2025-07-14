@@ -136,7 +136,7 @@ function Footer() {
         </a>
       </div>
 
-      <p className="absolute left-1/2 transform -translate-x-1/2">
+      <p className="absolute left-1/2 sm:transform -translate-x-1/2 text-xs sm:text-base">
         Contact us at{" "}
         <a href="mailto:evconceptillini@gmail.com">
           <u>evconceptillini@gmail.com</u>

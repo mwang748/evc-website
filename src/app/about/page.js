@@ -16,12 +16,12 @@ export default function About() {
         height={500}
       />
       <h1
-        className="font-semibold py-2 text-5xl px-4"
+        className="font-semibold py-2 text-2xl md:text-5xl px-4"
         style={{ backgroundColor: "#07407b", color: "#f7931e" }}
       >
         ABOUT US
       </h1>
-      <div className="flex md:flex-row py-6 px-4 space-y-8 md:space-y-0 md:space-x-12 text-2xl ml-6 mr-6 mb-10 mt-10">
+      <div className="flex md:flex-row sm:py-6 sm:px-4 space-y-8 md:space-y-0 md:space-x-12 text-sm sm:text-2xl mx-6 sm:mb-10 sm:mt-10 my-5">
         Founded in 2012, Illini EV Concept was established by a few friends
         wanting to challenge their limits in engineering and STEM. Since then,
         our team has grown from its humble beginnings to an organization
@@ -35,16 +35,18 @@ export default function About() {
         height="1000"
         style={{ objectFit: "cover" }}
       />
-      <div className="flex md:flex-row py-6 px-4 space-y-8 md:space-y-0 md:space-x-12 text-2xl ml-6 mr-6 mt-10">
+      <div className="flex md:flex-row sm:py-6 sm:px-4 space-y-8 md:space-y-0 md:space-x-12 text-sm sm:text-2xl mx-6 sm:mt-10 my-5">
         Our interdisciplinary team of engineers is passionate about sustainable
         energy and committed to building the most energy-efficient electric
         vehicles possible, entirely from scratch. In fact, we strive to have all
         of our car’s components custom-built by our team, allowing for increased
         creativity and precision.
       </div>
-      <div className="p-10 mb-12">
-        <header className="font-semibold text-3xl">SHELL-ECO MARATHON</header>
-        <div className="flex flex-row flex-nowrap">
+      <div className="p-5 sm:p-10 mb-12">
+        <header className="font-semibold text-2xl sm:text-3xl">
+          SHELL-ECO MARATHON
+        </header>
+        <div className="flex flex-col sm:flex-row flex-nowrap">
           <div className="pt-5 text-lg">
             <Image
               src="/images/about/shelleco.png"
@@ -54,7 +56,7 @@ export default function About() {
               style={{ objectFit: "cover" }}
             />
           </div>
-          <p className="pt-5 text-xl flex-1 m-10">
+          <p className="pt-5 tex-sm sm:text-xl flex-1 mx-5 sm:m-10">
             Every year, we embrace the challenge of designing, fabricating, and
             testing a vehicle for the Shell Eco-Marathon Americas Competition,
             which motivates us to push the limits of vehicle efficiency and
