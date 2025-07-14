@@ -43,10 +43,10 @@ export default function Home() {
         style={{ objectFit: "cover" }}
       />
       <div className="p-10 mb-12">
-        <header className="font-semibold text-xl sm:text-3xl">
+        <header className="font-semibold text-xl lg:text-3xl">
           WHY JOIN OUR TEAM?
         </header>
-        <p className="pt-5 pb-16 text-sm sm:text-lg">
+        <p className="pt-5 pb-16 text-sm lg:text-lg">
           Joining EV Concept will give you a unique, hands-on experience through
           the process of designing and building a car, as we design and make the
           whole car ourselves. We also let members choose projects to specialize
