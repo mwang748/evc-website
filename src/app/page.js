@@ -17,7 +17,7 @@ export default function Home() {
           </p>
         </header>
         <Image
-          src="/images/homepage/sunsetcar.jpg"
+          src="/images/homepage/sunsetcar.JPG"
           alt="sunsetcar"
           width="2000"
           height="2"
