@@ -10,7 +10,7 @@ export default function Contacts() {
     <div className="flex flex-col">
       {/* Title */}
       <Image
-        src="/images/classiccar.jpg"
+        src="/images/contacts/classiccarcropped.jpg"
         alt="Classic Car"
         width={5000}
         height={500}
