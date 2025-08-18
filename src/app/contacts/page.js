@@ -16,7 +16,7 @@ export default function Contacts() {
         height={500}
       />
       <h1
-        className="font-semibold py-2 text-5xl px-4"
+        className="font-semibold py-2 text-2xl lg:text-5xl px-4"
         style={{ backgroundColor: "#07407b", color: "#f7931e" }}
       >
         CONTACT US
@@ -29,7 +29,7 @@ export default function Contacts() {
           {/* Sponsoring */}
           <div>
             <h2
-              className="font-semibold py-2 text-3xl"
+              className="font-semibold py-2 text-xl lg:text-3xl"
               style={{ color: "#f7931e" }}
             >
               Interested in Sponsoring?
@@ -46,7 +46,7 @@ export default function Contacts() {
           {/* Student Join */}
           <div className="pt-10">
             <h2
-              className="font-semibold py-2 text-3xl"
+              className="font-semibold py-2 text-xl lg:text-3xl"
               style={{ color: "#f7931e" }}
             >
               Are you a Student Interested in Joining Us?

@@ -28,7 +28,7 @@
 #nav-icon1 span{
   display: block;
   position: absolute;
-  height: 1.5px;
+  height: 2px;
   width: 100%;
   background: white;
   border-radius: 1px;
@@ -76,5 +76,4 @@
   max-height: 300px;
   opacity: 1;
   transition: max-height 0.5s ease;
-  padding-bottom: 1rem;
 }
