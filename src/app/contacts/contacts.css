@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+body {
+  background: radial-gradient(ellipse at center, #0a0a0a 0%, #000000 100%);
+  font-family: 'Inter', sans-serif;
+}
+
+/* Background Animations */
+.circuit-bg {
+  background-image: 
+    linear-gradient(90deg, rgba(74,144,226,0.05) 1px, transparent 1px),
+    linear-gradient(rgba(74,144,226,0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Text Effects */
+.electric-title {
+  /* font-family: 'Orbitron', monospace; */
+  background: linear-gradient(45deg, #4a90e2, #f7931e);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 3s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Card Styles */
+.neon-card {
+  background: rgba(26, 26, 46, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(74, 144, 226, 0.2);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.neon-card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #4a90e2, #f7931e);
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.neon-card:hover::before {
+  opacity: 0.3;
+}
+
+.neon-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(74,144,226,0.2);
+}
+
+/* Contact Section Specific */
+.contact-section {
+  animation: slide-in 0.6s ease forwards;
+}
+
+.contact-image {
+  animation: float 3s ease-in-out infinite;
+  filter: drop-shadow(0 10px 30px rgba(74,144,226,0.3));
+  border-radius: 15px;
+}
+
+/* Social Media Icons */
+.social-icon {
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
+}
+
+.social-icon:hover {
+  transform: translateY(-5px) scale(1.1);
+  filter: drop-shadow(0 15px 25px rgba(74,144,226,0.4));
+}
+
+/* Discord Icon Specific */
+.discord-icon:hover {
+  filter: drop-shadow(0 15px 25px rgba(88,101,242,0.6));
+}
+
+/* Instagram Icon Specific */
+.instagram-icon:hover {
+  filter: drop-shadow(0 15px 25px rgba(221,42,123,0.6));
+}
+
+/* LinkedIn Icon Specific */
+.linkedin-icon:hover {
+  filter: drop-shadow(0 15px 25px rgba(0,119,181,0.6));
+}
+
+/* Email Link Styling */
+.email-link {
+  color: #4a90e2;
+  transition: all 0.3s ease;
+  text-decoration: underline;
+  text-decoration-color: rgba(74,144,226,0.5);
+}
+
+.email-link:hover {
+  color: #f7931e;
+  text-decoration-color: #f7931e;
+  text-shadow: 0 0 10px rgba(247,147,30,0.5);
+}
+
+/* Responsive Styles */
+@media (min-width: 1024px) {
+  .hero-title {
+    font-size: 4rem;
+    padding: 2rem;
+  }
+  .section-title {
+    font-size: 2.5rem;
+  }
+  .content-text {
+    font-size: 1.125rem;
+    line-height: 1.7;
+  }
+}
+
+@media (max-width: 1023px) and (min-width: 768px) {
+  .hero-title {
+    font-size: 3rem;
+    padding: 1.5rem;
+  }
+  .section-title {
+    font-size: 2rem;
+  }
+  .content-text {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-title {
+    font-size: 2.5rem;
+    padding: 1rem;
+  }
+  .section-title {
+    font-size: 1.75rem;
+  }
+  .content-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  .contact-layout {
+    flex-direction: column;
+  }
+  .social-icons {
+    gap: 1.5rem;
+  }
+}

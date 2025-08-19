@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+body {
+  background: radial-gradient(ellipse at center, #0a0a0a 0%, #000000 100%);
+  font-family: 'Inter', sans-serif;
+}
+
+/* Background Animations */
+.circuit-bg {
+  background-image: 
+    linear-gradient(90deg, rgba(74,144,226,0.05) 1px, transparent 1px),
+    linear-gradient(rgba(74,144,226,0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Text Effects */
+.electric-title {
+  /* font-family: 'Orbitron', monospace; */
+  background: linear-gradient(45deg, #4a90e2, #f7931e);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 3s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Card Styles */
+.neon-card {
+  background: rgba(26, 26, 46, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(74, 144, 226, 0.2);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+} 
+
+.neon-card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #4a90e2, #f7931e);
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.neon-card:hover::before {
+  opacity: 0.3;
+}
+
+.neon-card:hover {
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 0 15px 30px rgba(74,144,226,0.2);
+}
+
+/* Image Styles */
+.team-image {
+  filter: grayscale(20%) contrast(1.1);
+  transition: all 0.3s ease;
+}
+
+/* Subteam Styles */
+.subteam-card {
+  background: rgba(26, 26, 46, 0.6);
+  backdrop-filter: blur(15px);
+  border-left: 4px solid;
+  position: relative;
+  overflow: hidden;
+}
+
+.subteam-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, transparent, currentColor, transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.subteam-card:hover::after {
+  opacity: 1;
+}
+
+/* Desktop Styles (1024px and up) */
+@media (min-width: 1024px) {
+  .hero-title {
+    font-size: 4rem;
+    padding: 2rem;
+  }
+  .intro-text {
+    font-size: 1.25rem;
+    line-height: 1.8;
+  }
+  .exec-title {
+    font-size: 4.5rem;
+  }
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 2rem;
+  }
+  .team-image-size {
+    width: 12rem;
+    height: 12rem;
+  }
+}
+
+/* Tablet Styles (768px to 1023px) */
+@media (max-width: 1023px) and (min-width: 768px) {
+  .hero-title {
+    font-size: 3rem;
+    padding: 1.5rem;
+  }
+  .exec-title {
+    font-size: 3.5rem;
+  }
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+  .team-image-size {
+    width: 10rem;
+    height: 10rem;
+  }
+}
+
+/* Mobile Styles (767px and below) */
+@media (max-width: 767px) {
+  .hero-title {
+    font-size: 2.5rem;
+    padding: 1rem;
+  }
+  .exec-title {
+    font-size: 2.5rem;
+  }
+  .team-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+  .team-image-size {
+    width: 8rem;
+    height: 8rem;
+  }
+  .subteam-section {
+    flex-direction: column !important;
+    text-align: center;
+  }
+  .subteam-image {
+    max-width: 280px !important;
+  }
+}

@@ -53,7 +53,7 @@ function Navbar() {
       <div className="md:hidden ml-auto pr-4">
         <Nav />
       </div>
-      <div className=" hidden md:flex flex ml-auto mr-10 gap-10 ">
+      <div className="hidden md:flex ml-auto mr-10 gap-10 ">
         <div className="transition duration-300 hover:text-[#F7931E]">
           <Link href="/about">ABOUT</Link>
         </div>
