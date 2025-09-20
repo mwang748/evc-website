@@ -18,7 +18,7 @@ export default function About() {
       <h1
         className="font-semibold py-2 text-2xl lg:text-5xl px-4"
         style={{ backgroundColor: "#07407b", color: "#f7931e" }}
-      >
+      > 
         ABOUT US
       </h1>
       <div className="flex lg:flex-row lg:py-6 lg:px-4 space-y-8 md:space-y-0 md:space-x-12 text-sm lg:text-2xl mx-6 lg:mb-10 lg:mt-10 my-5">
