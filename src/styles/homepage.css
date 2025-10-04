@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap");
 
-body {
+/* body {
     background: radial-gradient(ellipse at center,
             #0a0a0a 0%,
             #000000 100%);
@@ -178,7 +178,7 @@ body {
 }
 
 /* Responsive Design */
-@media (max-width: 1024px) {
+/*@media (max-width: 1024px) {
     .hero-content {
         right: 2rem;
         top: 20%;
@@ -234,4 +234,4 @@ body {
     .mission-title {
         font-size: 2.5rem;
     }
-}
+} */
