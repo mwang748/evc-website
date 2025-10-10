@@ -9,18 +9,21 @@ export default function Contacts() {
   return (
     <div className="flex flex-col">
       {/* Title */}
-      <Image
-        src="/images/contacts/classiccarcropped.jpg"
-        alt="Classic Car"
-        width={5000}
-        height={500}
-      />
+      <div className="gradient-overlay">
+        <Image
+          src="/images/contacts/classiccarcropped.jpg"
+          alt="Classic Car"
+          width={5000}
+          height={500}
+        />
+      </div>
+      <div className="section-header">
       <h1
-        className="font-semibold py-2 text-5xl px-4"
-        style={{ backgroundColor: "#07407b", color: "#f7931e" }}
+        className="section-title"
       >
         CONTACT US
       </h1>
+      </div>
 
       {/* Content Section */}
       <div className="flex flex-col mb-10 md:flex-row py-6 px-4 space-y-8 md:space-y-0 md:space-x-12">

@@ -8,9 +8,9 @@ html, body {
     box-sizing: border-box;
 }
 
-body{
+/* body{
     background-color: #1A1A1A;
-}
+} */
 
 .timeline{
     position: relative;
@@ -18,20 +18,22 @@ body{
     margin: 100px auto;
 }
 
-.section-header {
+/* .section-header {
     color: #F7931E;
     font-size: 2.5rem;
     font-weight: bold;
-    background-color: #FFFFFF;
+    background-color: #1A1A1A;
     padding-bottom: 10px;
     padding-top: 10px;
     padding-left: 0px;
     width: 100%;
-}
+} */
 
-.section-title {
-    transform: translateX(300px);
-}
+/* .section-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
 
 .section-body{
     position: relative;
@@ -55,16 +57,16 @@ body{
     background-color: transparent;
 }
 
-.link-highlight {
+/* .link-highlight {
   color: white;
   text-decoration: underline;
   text-decoration-color: white;
   transition: color 0.2s ease;
-}
+} */
 
-.link-highlight:hover {
+/* .link-highlight:hover {
   color: orange;
-}
+} */
 
 @keyframes movedown {
     0%{

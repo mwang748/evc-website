@@ -10,12 +10,12 @@ export const metadata = {
 export default function Sponsors() {
     return (
         <div>
-            <div>
+            <div className='gradient-overlay'>
                 <Image
-                    src="/images/ourcars/our_cars_header.jpg"
-                    alt="our_car_header"
-                    width={2000}
-                    height={800}
+                    src="/images/contacts/classiccarcropped.jpg"
+                    alt="Classic Car"
+                    width={5000}
+                    height={500}
                 />
             </div>
             <div className="section-header">

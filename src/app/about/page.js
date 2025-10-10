@@ -9,18 +9,21 @@ export default function About() {
   return (
     <div className="flex flex-col">
       {/* Title */}
-      <Image
-        src="/images/about/evc2c.jpg"
-        alt="classiccar"
-        width={5000}
-        height={500}
-      />
-      <h1
-        className="font-semibold py-2 text-2xl lg:text-5xl px-4"
-        style={{ backgroundColor: "#07407b", color: "#f7931e" }}
-      >
-        ABOUT US
-      </h1>
+      <div className="gradient-overlay">
+        <Image
+            src="/images/contacts/classiccarcropped.jpg"
+            alt="Classic Car"
+            width={5000}
+            height={500}
+        />
+      </div>
+      <div className="section-header">
+        <h1
+          className="section-title"
+        >
+          ABOUT US
+        </h1>
+      </div>
       <div className="flex lg:flex-row lg:py-6 lg:px-4 space-y-8 md:space-y-0 md:space-x-12 text-sm lg:text-2xl mx-6 lg:mb-10 lg:mt-10 my-5">
         Founded in 2012, Illini EV Concept was established by a few friends
         wanting to challenge their limits in engineering and STEM. Since then,
