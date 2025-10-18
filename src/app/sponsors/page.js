@@ -37,12 +37,12 @@ export default function Sponsors() {
                 />
             </div>
 
-            <div className="section-body">
+            <div className="my-20 mx-20 text-center text-sm lg:text-2xl">
                 <p>
                     A huge thank you to all our sponsors! Your support has been essential in helping us achieve our
                     goals and in fostering the education and experience of our members and community.
                 </p>
-                <p>
+                <p className="mt-5">
                     If you’re not yet a sponsor but are interested, we appreciate your consideration!
                     Please review our sponsorship brochure and <Link href="/contacts" className="text-orange-300 underline">contact us</Link>.
                 </p>

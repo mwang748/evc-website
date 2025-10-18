@@ -9,7 +9,7 @@
   /* font-size: 1.5vw; */
 }
 
-@media (prefers-color-scheme: dark) {
+@media (refers-color-scheme: dark) {
   :root {
     --background: #1A1A1A;
     --foreground: #ededed;

@@ -149,8 +149,8 @@ export default function Team() {
         MEET THE TEAM
       </h1>
       </div>
-      <div className="text-2xl flex-col justify-center items-center">
-        <p className="px-6 py-6">
+      <div className="text-2xl flex-col justify-center items-center mx-20">
+        <p className="flex text-center lg:flex-row lg:py-6 lg:px-4 space-y-8 md:space-y-0 md:space-x-12 text-sm lg:text-2xl lg:mb-10 lg:mt-10 my-5">
           Our members come from various majors to build skills in engineering,
           design, and business. With over 80 members, the dedication and
           creativity of our team are crucial to our success. Members and alums

@@ -27,11 +27,11 @@ html, body {
     transform: translateX(300px); 
 } */
 
-.section-body{
+/* .section-body{
     position: relative;
     max-width: 1200px;
     margin: 30px auto;
-}
+} */
 
 .sponsor {
     display: flex;
