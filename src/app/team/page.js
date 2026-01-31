@@ -149,12 +149,12 @@ export default function Team() {
         MEET THE TEAM
       </h1>
       </div>
-      <div className="text-2xl flex-col justify-center items-center mx-20">
+      <div className="text-2xl flex-col justify-center items-center mx-4 sm:mx-8 md:mx-12 lg:mx-20">
         <p className="flex text-center lg:flex-row lg:py-6 lg:px-4 space-y-8 md:space-y-0 md:space-x-12 text-sm lg:text-2xl lg:mb-10 lg:mt-10 my-5">
           Our members come from various majors to build skills in engineering,
           design, and business. With over 80 members, the dedication and
           creativity of our team are crucial to our success. Members and alums
-          have applied the skills they’ve gained to work at companies such as
+          have applied the skills they've gained to work at companies such as
           Apple, John Deere, McMaster, SpaceX, Texas Instruments, Tesla, and
           more.
         </p>
@@ -164,15 +164,16 @@ export default function Team() {
           alt="Comp Pic"
           width={2000}
           height={1000}
+          className="w-full h-auto"
         />
       </div>
       <div>
-        <h1 className="text-center font-semibold py-6 text-6xl px-4">
+        <h1 className="text-center font-semibold py-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl px-4">
           2025-2026 EXEC
         </h1>
         {/* People */}
-        <div className="p-6 in-h-screen">
-          <div className="grid grid-cols-3 gap-6">
+        <div className="p-3 sm:p-4 md:p-6 in-h-screen">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {items.map((item) => (
               <div
                 key={item.id}
@@ -183,16 +184,16 @@ export default function Team() {
                   <img
                     src={item.picture}
                     alt={item.name}
-                    className="w-64 h-64 rounded-full shadow-lg shadow-gray-400 mb-2 object-cover border-2 border-gray-100"
+                    className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full shadow-lg shadow-gray-400 mb-2 object-cover border-2 border-gray-100"
                   />
-                  <h2 className="mt-2 font-bold">{item.position}</h2>
+                  <h2 className="mt-2 font-bold text-sm sm:text-base">{item.position}</h2>
                   <h3
-                    className="text-xl font-semibold mb-2"
+                    className="text-lg sm:text-xl font-semibold mb-2"
                     style={{ color: "#f7931e" }}
                   >
                     {item.name}
                   </h3>
-                  <p className="text-white text-sm leading-relaxed">
+                  <p className="text-white text-xs sm:text-sm leading-relaxed">
                     {item.info}
                   </p>
                 </div>
@@ -210,10 +211,10 @@ export default function Team() {
         </div> */}
 
         <div className="min-h-screen flex flex-col">
-          <div className="flex items-center justify-center py-8">
+          <div className="flex items-center justify-center py-8 px-4 sm:px-6 md:px-8">
             <div className="max-w-6xl w-full">
-              <h1 className="font-semibold py-3 text-3xl">SUBTEAMS</h1>
-              <p>
+              <h1 className="font-semibold py-3 text-2xl sm:text-3xl">SUBTEAMS</h1>
+              <p className="text-sm sm:text-base">
                 At Illini EV Concept, our team is organized into specialized
                 subteams, each responsible for different areas of our vehicle.
                 We use industry-standard software such as SolidWorks and KiCAD
@@ -230,32 +231,32 @@ export default function Team() {
           {boxes.map((box, index) => (
             <div
               key={index}
-              className={`flex-1 flex items-center justify-center p-8`}
+              className={`flex-1 flex items-center justify-center p-4 sm:p-6 md:p-8`}
               style={{
                 backgroundColor: index % 2 === 0 ? "#07407b" : "",
               }}
             >
               <div
-                className={`max-w-6xl w-full flex items-center gap-8 ${
-                  index % 2 === 1 ? "flex-row-reverse" : ""
+                className={`max-w-6xl w-full flex flex-col md:flex-row items-center gap-4 sm:gap-6 md:gap-8 ${
+                  index % 2 === 1 ? "md:flex-row-reverse" : ""
                 }`}
               >
                 <div className="flex-1">
                   <h2
-                    className="text-3xl font-bold mb-4"
+                    className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4"
                     style={{ color: "#f7931e" }}
                   >
                     {box.title}
                   </h2>
-                  <p className="text-gray-200 text-lg leading-relaxed">
+                  <p className="text-gray-200 text-sm sm:text-base md:text-lg leading-relaxed">
                     {box.description}
                   </p>
                 </div>
-                <div>
+                <div className="w-full md:w-auto">
                   <img
                     src={box.image}
                     alt={box.title}
-                    className="max-w-screen-sm object-cover shadow-md"
+                    className="w-full md:max-w-sm lg:max-w-md object-cover shadow-md"
                   />
                 </div>
               </div>

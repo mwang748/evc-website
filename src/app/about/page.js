@@ -24,44 +24,46 @@ export default function About() {
           ABOUT US
         </h1>
       </div>
-      <div className="flex text-center lg:flex-row lg:py-6 lg:px-4 space-y-8 md:space-y-0 md:space-x-12 text-sm lg:text-2xl mx-20 lg:mb-10 lg:mt-10 my-5">
+      <div className="flex text-center lg:flex-row lg:py-6 lg:px-4 space-y-8 md:space-y-0 md:space-x-12 text-sm lg:text-2xl mx-4 sm:mx-8 md:mx-12 lg:mx-20 lg:mb-10 lg:mt-10 my-5">
         Founded in 2012, Illini EV Concept was established by a few friends
         wanting to challenge their limits in engineering and STEM. Since then,
         our team has grown from its humble beginnings to an organization
         dedicated to having a lasting impact on generations of students and our
         local community.
       </div>
-      <div className="flex mx-20">
+      <div className="flex mx-2 sm:mx-4 md:mx-8 lg:mx-20">
         <Image
         src="/images/about/carbanner.jpg"
         alt="thincar"
         width="2000"
         height="1000"
         style={{ objectFit: "cover" }}
+        className="w-full h-auto"
       />
       </div>
-      <div className="flex text-center lg:flex-row lg:py-6 lg:px-4 space-y-8 md:space-y-0 md:space-x-12 text-sm lg:text-2xl mx-20 lg:mb-10 lg:mt-10 my-5">
+      <div className="flex text-center lg:flex-row lg:py-6 lg:px-4 space-y-8 md:space-y-0 md:space-x-12 text-sm lg:text-2xl mx-4 sm:mx-8 md:mx-12 lg:mx-20 lg:mb-10 lg:mt-10 my-5">
         Our interdisciplinary team of engineers is passionate about sustainable
         energy and committed to building the most energy-efficient electric
         vehicles possible, entirely from scratch. In fact, we strive to have all
-        of our car’s components custom-built by our team, allowing for increased
+        of our car's components custom-built by our team, allowing for increased
         creativity and precision.
       </div>
       <div className="p-5 lg:p-10 mb-12">
-        <header className="font-semibold text-2xl sm:text-3xl">
+        <header className="font-semibold text-2xl sm:text-3xl px-2 sm:px-0">
           SHELL-ECO MARATHON
         </header>
         <div className="flex flex-col md:flex-row flex-nowrap">
-          <div className="pt-5 text-lg">
+          <div className="pt-5 text-lg flex justify-center md:justify-start">
             <Image
               src="/images/about/shelleco.png"
               alt="shellecopic"
               width="400"
               height="400"
               style={{ objectFit: "cover" }}
+              className="w-full max-w-[400px] h-auto"
             />
           </div>
-          <p className="pt-5 tex-sm lg:text-xl flex-1 lg:mx-5 lg:m-10">
+          <p className="pt-5 text-sm lg:text-xl flex-1 lg:mx-5 lg:m-10 px-2 sm:px-4 md:px-0">
             Every year, we embrace the challenge of designing, fabricating, and
             testing a vehicle for the Shell Eco-Marathon Americas Competition,
             which motivates us to push the limits of vehicle efficiency and

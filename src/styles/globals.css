@@ -16,10 +16,15 @@
   }
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: Montserrat;
+  overflow-x: hidden;
 }
 
 .section-header {
