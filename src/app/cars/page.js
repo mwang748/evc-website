@@ -9,6 +9,15 @@ gsap.registerPlugin(ScrollTrigger);
 
 const yearData = [
     {
+        year: "2024-2025",
+        text: "description: We raced with EV2 again this year while still designing EV3, and passed the technical inspection at Shell-Eco!",
+        images: [
+            {src: "/images/ourcars/work_on_car_1.JPG", alt: "Work on Car "},
+            {src: "/images/ourcars/work_on_car_2.JPG", alt: "Work on Car"},
+            {src: "/images/ourcars/team_comp_photo_2024_2025.JPG", alt: "Team Photo"},
+        ],
+    },
+    {
         year: "2023-2024",
         text: "Initial design sketches of our upcoming car, EV3, laying the groundwork for this year's build. The completed EV2, used in last year's competition.",
         images: [
@@ -141,7 +150,7 @@ export default function Cars() {
                 pin: true,
                 scrub: 0.8,
                 start: "top top",
-                end: () => `+=${totalWidth}`,
+                end: () => `+=${totalWidth * 0.5}`,
                 onUpdate: (self) => {
                     // Progress bar
                     if (progressFillRef.current) {
@@ -253,9 +262,6 @@ export default function Cars() {
 
                                     {/* Text side */}
                                     <div className={`tl-text-block ${!hasVisuals ? 'tl-text-block-centered' : ''}`}>
-                                        <span className="tl-step-num">
-                                            {String(i + 1).padStart(2, '0')}
-                                        </span>
                                         <h2 className="tl-year">{item.year}</h2>
                                         {item.text && (
                                             <p className="tl-desc">{item.text}</p>
