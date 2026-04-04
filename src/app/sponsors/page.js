@@ -24,14 +24,14 @@ export default function Sponsors() {
 
             <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-20 mb-8 pt-12 md:pt-12">
                 <Image
-                    src="/images/sponsors/altium.jpg"
+                    src="/images/sponsors/logo-700x400-Altium.png"
                     alt="altium sponsor"
                     width={500}
                     height={300}
                     className="w-[90%] md:w-auto max-w-[500px] h-auto"
                 />
                 <Image
-                    src="/images/sponsors/altair.jpg"
+                    src="/images/sponsors/siemens-logo.png"
                     alt="altair sponsor"
                     width={500}
                     height={300}
