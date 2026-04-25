@@ -9,8 +9,18 @@ gsap.registerPlugin(ScrollTrigger);
 
 const yearData = [
     {
+        year: "2025-2026",
+        text: "We competed with EV2, passing technical inspection at Shell-Eco and running four laps on the track! EV3 is being prototyped and designed.",
+        images: [
+            {src: "/images/ourcars/2025-2026_car1.jpeg", alt: "Car"},
+            {src: "/images/ourcars/2025-2026_car_work.jpeg", alt: "Work On Car"},
+            {src: "/images/ourcars/2025-2026_car_work2.jpeg", alt: "Work On Car 2"},
+            {src: "/images/ourcars/car_running.mp4", alt: "Car running"},
+        ],
+    },
+    {
         year: "2024-2025",
-        text: "description: We raced with EV2 again this year while still designing EV3, and passed the technical inspection at Shell-Eco!",
+        text: "We raced with EV2 again this year while still designing EV3, and passed the technical inspection at Shell-Eco!",
         images: [
             {src: "/images/ourcars/work_on_car_1.JPG", alt: "Work on Car "},
             {src: "/images/ourcars/work_on_car_2.JPG", alt: "Work on Car"},
@@ -234,16 +244,41 @@ export default function Cars() {
                                     {hasVisuals && (
                                         <div className={`tl-images ${imageCount === 1 ? 'tl-images-single' : ''} ${imageCount === 2 ? 'tl-images-double' : ''} ${imageCount >= 3 ? 'tl-images-multi' : ''}`}>
                                             {item.images.length > 0 ? (
-                                                item.images.map((img, j) => (
-                                                    <Image
-                                                        key={j}
-                                                        src={img.src}
-                                                        alt={img.alt}
-                                                        width={600}
-                                                        height={450}
-                                                        className={`tl-img ${imageCount === 1 ? 'tl-img-single' : ''} ${imageCount === 2 ? 'tl-img-double' : ''} ${imageCount >= 3 ? 'tl-img-multi' : ''}`}
-                                                    />
-                                                ))
+item.images.map((img, j) => {
+                                                    // Check if this is a video file
+                                                    const isVideo = img.src.endsWith('.mp4') || img.src.endsWith('.webm') || img.src.endsWith('.ogg');
+
+                                                    if (isVideo) {
+                                                        return (
+                                                            <video
+                                                                key={j}
+                                                                autoPlay
+                                                                loop
+                                                                muted
+                                                                playsInline
+                                                                preload="auto"
+                                                                className={`tl-video-inline ${imageCount === 1 ? 'tl-img-single' : ''} ${imageCount === 2 ? 'tl-img-double' : ''} ${imageCount >= 3 ? 'tl-img-multi' : ''}`}
+                                                                onLoadedData={(e) => {
+                                                                    e.target.play().catch(err => console.log('Video autoplay failed:', err));
+                                                                }}
+                                                            >
+                                                                <source src={img.src} type="video/mp4" />
+                                                                Your browser does not support the video tag.
+                                                            </video>
+                                                        );
+                                                    }
+
+                                                    return (
+                                                        <Image
+                                                            key={j}
+                                                            src={img.src}
+                                                            alt={img.alt}
+                                                            width={600}
+                                                            height={450}
+                                                            className={`tl-img ${imageCount === 1 ? 'tl-img-single' : ''} ${imageCount === 2 ? 'tl-img-double' : ''} ${imageCount >= 3 ? 'tl-img-multi' : ''}`}
+                                                        />
+                                                    );
+                                                })
                                             ) : item.video ? (
                                                 <div className="tl-video">
                                                     <iframe

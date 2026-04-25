@@ -6,7 +6,6 @@ export const metadata = {
 };
 
 export default function Team() {
-  // pres, treasurer, bizops x2, electrical x3, embedded x3 (VFDC, Neil Deo, Haoming), mech x2, autonomous ?,
   const items = [
     {
       id: 1,
@@ -24,75 +23,111 @@ export default function Team() {
     },
     {
       id: 3,
-      picture: "/images/team/anthony.jpg",
-      name: "Anthony Amella",
-      position: "Electrical Co-Lead",
-      info: "Electrical Engineering 2026",
+      picture: "/images/team/ethan_rybka.jpg",
+      name: "Ethan Rybka",
+      position: "ELectrical Co-Lead",
+      info: ""
     },
-    {
-      id: 4,
-      picture: "/images/team/eric.jpg",
-      name: "Eric Vo",
-      position: "Electrical Co-Lead",
-      info: "Electrical Engineering 2026",
-    },
-    {
-      id: 5,
-      picture: "/images/team/kathleen.jpg",
-      name: "Kathleen Lum",
-      position: "Electrical Co-Lead",
-      info: "Electrical Engineering 2026",
-    },
-    {
-      id: 6,
-      picture: "/images/team/haoming.jpg",
-      name: "Haoming Mei",
-      position: "Embedded Co-Lead",
-      info: "Computer Engineering 2026",
-    },
+    // {
+    //   id: 3,
+    //   picture: "/images/team/anthony.jpg",
+    //   name: "Anthony Amella",
+    //   position: "Electrical Co-Lead",
+    //   info: "Electrical Engineering 2026",
+    // },
+    // {
+    //   id: 4,
+    //   picture: "/images/team/eric.jpg",
+    //   name: "Eric Vo",
+    //   position: "Electrical Co-Lead",
+    //   info: "Electrical Engineering 2026",
+    // },
+    // {
+    //   id: 4,
+    //   picture: "/images/team/eric.jpg",
+    //   name: "Eric Vo",
+    //   position: "Electrical Co-Lead",
+    //   info: "Electrical Engineering 2026",
+    // },
+    // {
+    //   id: 5,
+    //   picture: "/images/team/kathleen.jpg",
+    //   name: "Kathleen Lum",
+    //   position: "Electrical Co-Lead",
+    //   info: "Electrical Engineering 2026",
+    // },
+    // {
+    //   id: 6,
+    //   picture: "/images/team/haoming.jpg",
+    //   name: "Haoming Mei",
+    //   position: "Embedded Co-Lead",
+    //   info: "Computer Engineering 2026",
+    // },
     // {
     //   id: 7,
     //   picture: null,
-    //   name: "Vervin Fernandez",
-    //   info: "Computer Engineering 2026",
+    //   name: "Neil Deo",
+    //   position: "Embedded Co-Lead",
+    //   info: "Computer Engineering 2027",
     // },
     {
-      id: 7,
+      id: 4,
       picture: null,
-      name: "Neil Deo",
+      name: "Mithra Thratta",
       position: "Embedded Co-Lead",
-      info: "Computer Engineering 2027",
+      info: ""
     },
+    {
+      id: 5,
+      picture: "/images/team/carlos_arriola.jpg",
+      name: "Carlos Arriola",
+      position: "Embedded Co-Lead",
+      info: ""
+    },
+    // {
+    //   id: 8,
+    //   picture: "/images/team/antheria.jpg",
+    //   name: "Antheria Jiang",
+    //   position: "Mechposites Co-Lead",
+    //   info: "Mechanical Engineering 2026",
+    // },
+    // {
+    //   id: 9,
+    //   picture: "/images/team/nick_mech.jpg",
+    //   name: "Nick Skweres",
+    //   position: "Mechposites Co-Lead",
+    //   info: "Mechanical Engineering 2026",
+    // },
+    {
+      id: 6,
+      picture: "/images/team/alex_james.jpg",
+      name: "Alex James",
+      position: "Mechposites Co-Lead",
+      info: "",
+    },
+    {
+      id: 7,
+      picture: "/images/team/nicholas_wszolek.jpg",
+      name: "Nick Wszolek",
+      position: "Mechposites Co-Lead",
+      info: "",
+    },
+    // {
+    //   id: 10,
+    //   picture: "/images/team/sid.jpg",
+    //   name: "Siddharth Gupta",
+    //   position: "Autonomous Lead",
+    //   info: "Physics + Computer Science 2025",
+    // },
     {
       id: 8,
-      picture: "/images/team/antheria.jpg",
-      name: "Antheria Jiang",
-      position: "Mechposites Co-Lead",
-      info: "Mechanical Engineering 2026",
-    },
-    {
-      id: 9,
-      picture: "/images/team/nick_mech.jpg",
-      name: "Nick Skweres",
-      position: "Mechposites Co-Lead",
-      info: "Mechanical Engineering 2026",
-    },
-    {
-      id: 10,
-      picture: "/images/team/sid.jpg",
-      name: "Siddharth Gupta",
-      position: "Autonomous Lead",
-      info: "Physics + Computer Science 2025",
-    },
-    {
-      id: 11,
       picture: "/images/team/kathy.jpg",
       name: "Kathryn Lee",
       position: "Business Operations Co-Lead",
       info: "Computer Science + Chemistry 2026",
     },
     {
-      id: 12,
+      id: 9,
       picture: "/images/team/michael.jpg",
       name: "Michael Wang",
       position: "Business Operations Co-Lead",
@@ -169,7 +204,7 @@ export default function Team() {
       </div>
       <div>
         <h1 className="text-center font-semibold py-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl px-4">
-          2025-2026 EXEC
+          2026-2027 EXEC
         </h1>
         {/* People */}
         <div className="p-3 sm:p-4 md:p-6 in-h-screen">
