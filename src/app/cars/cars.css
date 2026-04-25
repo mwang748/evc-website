@@ -80,7 +80,7 @@
 
 .tl-topbar-item-current .tl-topbar-dot {
   transform: scale(1.4);
-  box-shadow: 0 0 10px rgba(247, 147, 30, 0.5);
+  box-shadow: 0 0 6px rgba(247, 147, 30, 0.5);
 }
 
 /* Progress track sits right behind the dots */
@@ -173,18 +173,18 @@
 
 /* ---------- Image sizing by count ---------- */
 .tl-img {
-  border-radius: 16px;
+  border-radius: 6px;
   width: auto;
   height: auto;
   object-fit: cover;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(247, 147, 30, 0.15);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .tl-img:hover {
   transform: scale(1.04) translateY(-3px);
-  box-shadow: 0 14px 40px rgba(247, 147, 30, 0.35);
+  box-shadow: 0 4px 12px rgba(247, 147, 30, 0.25);
 }
 
 /* Single image — large and prominent */
@@ -221,10 +221,10 @@
   width: 100%;
   max-width: 520px;
   aspect-ratio: 16 / 9;
-  border-radius: 16px;
+  border-radius: 6px;
   overflow: hidden;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
-  border: 1px solid rgba(247, 147, 30, 0.15);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  border: none;
 }
 
 .tl-video iframe {
@@ -235,11 +235,11 @@
 
 /* Inline video (local MP4 files within image grid) */
 .tl-video-inline {
-  border-radius: 16px;
+  border-radius: 6px;
   width: auto;
   height: auto;
   object-fit: cover;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(247, 147, 30, 0.15);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   background: #000;
@@ -247,18 +247,18 @@
 
 .tl-video-inline:hover {
   transform: scale(1.04) translateY(-3px);
-  box-shadow: 0 14px 40px rgba(247, 147, 30, 0.35);
+  box-shadow: 0 4px 12px rgba(247, 147, 30, 0.25);
 }
 
 /* ---------- Text block (right side card) ---------- */
 .tl-text-block {
   flex: 1 1 45%;
   background: rgba(7, 64, 123, 0.18);
-  border: 1px solid rgba(247, 147, 30, 0.2);
-  border-radius: 24px;
+  border: none;
+  border-radius: 10px;
   padding: 2.5rem 2.5rem 2rem;
   backdrop-filter: blur(12px);
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
@@ -359,7 +359,7 @@
     max-width: 100%;
     flex: 0 1 100%;
     max-height: 260px;
-    border-radius: 12px;
+    border-radius: 5px;
   }
 
   .tl-img-double,
@@ -384,7 +384,7 @@
     flex: none;
     width: 100%;
     padding: 2rem 1.5rem;
-    border-radius: 18px;
+    border-radius: 8px;
   }
 
   .tl-text-block-centered {
@@ -473,6 +473,6 @@
   .tl-img-multi,
   .tl-video-inline {
     max-height: 220px;
-    border-radius: 10px;
+    border-radius: 4px;
   }
 }
