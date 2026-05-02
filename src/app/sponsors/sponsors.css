@@ -8,38 +8,30 @@ html, body {
     box-sizing: border-box;
 }
 
-body{
+/* body{
     background-color: #1A1A1A;
-}
+} */
 
-.section-header {
+/* .section-header {
     color: #F7931E;
     font-size: 2.5rem;
     font-weight: bold;
-    background-color: #FFFFFF;
+    background-color: #1A1A1A;
     padding-bottom: 10px;
     padding-top: 10px;
     padding-left: 0px;
     width: 100%;
-}
+} */
 
-.section-title {
-    transform: translateX(300px);
-}
+/* .section-title {
+    transform: translateX(300px); 
+} */
 
-.section-body{
+/* .section-body{
     position: relative;
     max-width: 1200px;
     margin: 30px auto;
-}
-
-.sponsor {
-    display: flex;
-    justify-content: center;
-    gap: 5rem;
-    margin-bottom: 2rem;
-    padding-top: 50px;
-}
+} */
 
 .orange-header {
     color: #F7931E;
@@ -47,15 +39,4 @@ body{
     font-weight: bold;
     margin-bottom: 0.5rem;
     background-color: transparent;
-}
-
-.link-highlight {
-  color: white;
-  text-decoration: underline;
-  text-decoration-color: white;
-  transition: color 0.2s ease;
-}
-
-.link-highlight:hover {
-  color: orange;
 }

@@ -9,20 +9,66 @@
   /* font-size: 1.5vw; */
 }
 
-@media (prefers-color-scheme: dark) {
+@media (refers-color-scheme: dark) {
   :root {
     --background: #1A1A1A;
     --foreground: #ededed;
   }
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: Montserrat;
+  overflow-x: hidden;
 }
 
-/* h1 {
-  background-color: #07407b;
+.section-header {
+  color: #F7931E;
+  font-size: 2.5rem;
+  font-weight: bold;
+  background-color: #1A1A1A;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  padding-left: 0px;
+  width: 100%;
+}
+
+.section-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.link-highlight {
+  color: white;
+  text-decoration: underline;
+  text-decoration-color: white;
+  transition: color 0.2s ease;
+}
+
+.link-highlight:hover {
+  color: orange;
+}
+
+h1 {
   color: #f7931e;
-} */
+}
+
+.gradient-overlay{
+    position: relative;
+}
+
+.gradient-overlay::after{
+    position: absolute;
+    background: linear-gradient(to top, #1A1A1A, transparent);
+    content: "";
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
