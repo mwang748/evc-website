@@ -26,7 +26,7 @@ export default function Team() {
       picture: "/images/team/ethan_rybka.jpg",
       name: "Ethan Rybka",
       position: "ELectrical Co-Lead",
-      info: ""
+      info: "Electrical Engineering 2028"
     },
     // {
     //   id: 3,
@@ -75,14 +75,14 @@ export default function Team() {
       picture: null,
       name: "Mithra Thratta",
       position: "Embedded Co-Lead",
-      info: ""
+      info: "Computer Engineering 2028"
     },
     {
       id: 5,
       picture: "/images/team/carlos_arriola.jpg",
       name: "Carlos Arriola",
       position: "Embedded Co-Lead",
-      info: ""
+      info: "Computer Engineering 2028"
     },
     // {
     //   id: 8,
@@ -103,14 +103,14 @@ export default function Team() {
       picture: "/images/team/alex_james.jpg",
       name: "Alex James",
       position: "Mechposites Co-Lead",
-      info: "",
+      info: "Mechanical Engineering 2027",
     },
     {
       id: 7,
       picture: "/images/team/nicholas_wszolek.jpg",
       name: "Nick Wszolek",
       position: "Mechposites Co-Lead",
-      info: "",
+      info: "Mechanical Engineering 2027",
     },
     // {
     //   id: 10,
@@ -121,13 +121,27 @@ export default function Team() {
     // },
     {
       id: 8,
-      picture: "/images/team/kathy.jpg",
-      name: "Kathryn Lee",
-      position: "Business Operations Co-Lead",
-      info: "Computer Science + Chemistry 2026",
+      picture: "/images/team/shayan_rahman.jpg",
+      name: "Shayan Rahman",
+      position: "Autonomous Lead",
+      info: "Computer Engineering 2028",
     },
     {
       id: 9,
+      picture: "/images/team/anay_joshi.jpeg",
+      name: "Anay Joshi",
+      position: "Autonomous Lead",
+      info: "CS + Physics 2028",
+    },
+    // {
+    //   id: 10,
+    //   picture: "/images/team/kathy.jpg",
+    //   name: "Kathryn Lee",
+    //   position: "Business Operations Co-Lead",
+    //   info: "Computer Science + Chemistry 2026",
+    // },
+    {
+      id: 10,
       picture: "/images/team/michael.jpg",
       name: "Michael Wang",
       position: "Business Operations Co-Lead",
