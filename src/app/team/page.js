@@ -72,7 +72,7 @@ export default function Team() {
     // },
     {
       id: 4,
-      picture: null,
+      picture: "/images/team/mithra_thratta.png",
       name: "Mithra Thratta",
       position: "Embedded Co-Lead",
       info: "Computer Engineering 2028"
