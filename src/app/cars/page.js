@@ -7,6 +7,58 @@ import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
+/**
+ * The timeline video is ~8.7MB. A plain `autoPlay` tag downloads it on page load
+ * even though its panel sits far off to the right of the horizontal scroller, so
+ * we show the poster frame and only attach the source once it's actually near the
+ * viewport.
+ */
+function LazyVideo({ src, poster, className }) {
+    const ref = useRef(null);
+    const [visible, setVisible] = useState(false);
+
+    useEffect(() => {
+        const el = ref.current;
+        if (!el || visible) return;
+
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setVisible(true);
+                    observer.disconnect();
+                }
+            },
+            { rootMargin: "200px" }
+        );
+        observer.observe(el);
+        return () => observer.disconnect();
+    }, [visible]);
+
+    // Asking to play is what actually starts the download — under preload="none"
+    // the browser does resource selection but fetches no media data on its own, so
+    // waiting on a loadeddata event here would wait forever. play() resolves once
+    // enough has buffered; it's muted and inline, so autoplay policy allows it.
+    useEffect(() => {
+        if (!visible || !ref.current) return;
+        ref.current.play().catch((err) => console.log("Video autoplay failed:", err));
+    }, [visible]);
+
+    return (
+        <video
+            ref={ref}
+            loop
+            muted
+            playsInline
+            poster={poster}
+            preload="none"
+            src={visible ? src : undefined}
+            className={className}
+        >
+            Your browser does not support the video tag.
+        </video>
+    );
+}
+
 const yearData = [
     {
         year: "2025-2026",
@@ -192,8 +244,10 @@ export default function Cars() {
                 <Image
                     src="/images/contacts/classiccarcropped.jpg"
                     alt="Classic Car"
-                    width={5000}
-                    height={500}
+                    width={2560}
+                    height={480}
+                    priority
+                    sizes="100vw"
                 />
             </div>
 
@@ -250,21 +304,12 @@ item.images.map((img, j) => {
 
                                                     if (isVideo) {
                                                         return (
-                                                            <video
+                                                            <LazyVideo
                                                                 key={j}
-                                                                autoPlay
-                                                                loop
-                                                                muted
-                                                                playsInline
-                                                                preload="auto"
+                                                                src={img.src}
+                                                                poster="/images/ourcars/car_running_poster.jpg"
                                                                 className={`tl-video-inline ${imageCount === 1 ? 'tl-img-single' : ''} ${imageCount === 2 ? 'tl-img-double' : ''} ${imageCount >= 3 ? 'tl-img-multi' : ''}`}
-                                                                onLoadedData={(e) => {
-                                                                    e.target.play().catch(err => console.log('Video autoplay failed:', err));
-                                                                }}
-                                                            >
-                                                                <source src={img.src} type="video/mp4" />
-                                                                Your browser does not support the video tag.
-                                                            </video>
+                                                            />
                                                         );
                                                     }
 
@@ -275,6 +320,7 @@ item.images.map((img, j) => {
                                                             alt={img.alt}
                                                             width={600}
                                                             height={450}
+                                                            sizes="(min-width: 768px) 600px, 90vw"
                                                             className={`tl-img ${imageCount === 1 ? 'tl-img-single' : ''} ${imageCount === 2 ? 'tl-img-double' : ''} ${imageCount >= 3 ? 'tl-img-multi' : ''}`}
                                                         />
                                                     );

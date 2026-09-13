@@ -14,8 +14,10 @@ export default function Sponsors() {
                 <Image
                     src="/images/contacts/classiccarcropped.jpg"
                     alt="Classic Car"
-                    width={5000}
-                    height={500}
+                    width={2560}
+                    height={480}
+                    priority
+                    sizes="100vw"
                 />
             </div>
             <div className="section-header">
@@ -28,6 +30,7 @@ export default function Sponsors() {
                     alt="altium sponsor"
                     width={500}
                     height={300}
+                    sizes="(min-width: 768px) 500px, 90vw"
                     className="w-[90%] md:w-auto max-w-[500px] h-auto"
                 />
                 <Image
@@ -35,6 +38,7 @@ export default function Sponsors() {
                     alt="altair sponsor"
                     width={500}
                     height={300}
+                    sizes="(min-width: 768px) 500px, 90vw"
                     className="w-[90%] md:w-auto max-w-[500px] h-auto"
                 />
             </div>

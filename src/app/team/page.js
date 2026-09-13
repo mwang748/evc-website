@@ -123,14 +123,14 @@ export default function Team() {
       id: 8,
       picture: "/images/team/shayan_rahman.jpg",
       name: "Shayan Rahman",
-      position: "Autonomous Lead",
+      position: "Autonomous Co-Lead",
       info: "Computer Engineering 2028",
     },
     {
       id: 9,
       picture: "/images/team/anay_joshi.jpeg",
       name: "Anay Joshi",
-      position: "Autonomous Lead",
+      position: "Autonomous Co-Lead",
       info: "CS + Physics 2028",
     },
     // {
@@ -144,7 +144,7 @@ export default function Team() {
       id: 10,
       picture: "/images/team/michael.jpg",
       name: "Michael Wang",
-      position: "Business Operations Co-Lead",
+      position: "Business Operations Lead",
       info: "Computer Science + Astronomy 2026",
     },
   ];
@@ -154,31 +154,41 @@ export default function Team() {
       title: "Electrical",
       description:
         "Handles the end-to-end development and manufacturing of all electrical systems, including battery management, telemetry boards, and motor controllers.",
-      image: "/images/team/electrical.png",
+      image: "/images/team/electrical.webp",
+      width: 900,
+      height: 475,
     },
     {
       title: "Embedded",
       description:
         "Customizes and programs microcontroller-based systems to manage and control the car’s electronic functions, coordinating with the vehicle’s overall system.",
-      image: "/images/team/emb.png",
+      image: "/images/team/emb.webp",
+      width: 900,
+      height: 468,
     },
     {
       title: "Mechposites",
       description:
         "Designs and manufactures the body, drivetrain, suspension, brakes, and steering components to ensure optimal safety, reliability, and performance.",
-      image: "/images/team/mech.png",
+      image: "/images/team/mech.webp",
+      width: 900,
+      height: 447,
     },
     {
       title: "Autonomous",
       description:
         "Integrates systems for autonomous vehicle capabilities, focusing on computer vision, advanced planning algorithms, and specialized hardware for smooth operation.",
-      image: "/images/team/auto.png",
+      image: "/images/team/auto.webp",
+      width: 900,
+      height: 454,
     },
     {
       title: "Business Operations",
       description:
         "Manages essential organizational needs such as internal consulting, inventory, purchases, sponsorships, accounting, and outreach, driving overall team efficiency and innovation.",
-      image: "/images/team/bizops.png",
+      image: "/images/team/bizops.webp",
+      width: 900,
+      height: 544,
     },
   ];
   return (
@@ -187,8 +197,10 @@ export default function Team() {
         <Image
           src="/images/contacts/classiccarcropped.jpg"
           alt="Classic Car"
-          width={5000}
-          height={500}
+          width={2560}
+          height={480}
+          priority
+          sizes="100vw"
         />
       </div>
       <div className="section-header">
@@ -211,8 +223,10 @@ export default function Team() {
         <Image
           src="/images/ev_pose_all.JPG"
           alt="Comp Pic"
-          width={2000}
-          height={1000}
+          width={2048}
+          height={955}
+          priority
+          sizes="100vw"
           className="w-full h-auto"
         />
       </div>
@@ -230,9 +244,12 @@ export default function Team() {
                 // style={{ backgroundColor: '#07407b' }}
               >
                 <div className="flex flex-col items-center text-center">
-                  <img
+                  <Image
                     src={item.picture}
                     alt={item.name}
+                    width={256}
+                    height={256}
+                    sizes="256px"
                     className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full shadow-lg shadow-gray-400 mb-2 object-cover border-2 border-gray-100"
                   />
                   <h2 className="mt-2 font-bold text-sm sm:text-base">{item.position}</h2>
@@ -301,11 +318,14 @@ export default function Team() {
                     {box.description}
                   </p>
                 </div>
-                <div className="w-full md:w-auto">
-                  <img
+                <div className="w-full md:w-[24rem] lg:w-[28rem] md:shrink-0">
+                  <Image
                     src={box.image}
                     alt={box.title}
-                    className="w-full md:max-w-sm lg:max-w-md object-cover shadow-md"
+                    width={box.width}
+                    height={box.height}
+                    sizes="(min-width: 1024px) 448px, (min-width: 768px) 384px, 100vw"
+                    className="w-full h-auto shadow-md"
                   />
                 </div>
               </div>
