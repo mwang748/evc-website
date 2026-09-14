@@ -19,8 +19,10 @@ export default function Home() {
         <Image
           src="/images/homepage/sunsetcar.JPG"
           alt="sunsetcar"
-          width="2000"
-          height="2"
+          width={2048}
+          height={1035}
+          priority
+          sizes="100vw"
           style={{ objectFit: "cover" }}
           className="relative z-0"
         />
@@ -38,8 +40,9 @@ export default function Home() {
       <Image
         src="/images/homepage/shellecocar.jpg"
         alt="carwflag"
-        width="2000"
-        height="2000"
+        width={2048}
+        height={701}
+        sizes="100vw"
         style={{ objectFit: "cover" }}
       />
       <div className="p-10 mb-12">

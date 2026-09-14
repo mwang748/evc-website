@@ -47,7 +47,7 @@ function Navbar() {
     >
       <div className="transition duration-300 hover:scale-110">
         <Link href="/">
-          <Image src="/images/evlogo.png" alt="evlogo" width="60" height="60" />
+          <Image src="/images/evlogo.png" alt="evlogo" width={60} height={60} priority />
         </Link>
       </div>
       <div className="md:hidden ml-auto pr-4">

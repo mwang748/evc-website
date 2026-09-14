@@ -13,8 +13,10 @@ export default function About() {
         <Image
           src="/images/contacts/classiccarcropped.jpg"
           alt="Classic Car"
-          width={5000}
-          height={500}
+          width={2560}
+          height={480}
+          priority
+          sizes="100vw"
         />
       </div>
       <div className="section-header">
@@ -31,10 +33,11 @@ export default function About() {
       </div>
       <div className="flex mx-2 sm:mx-4 md:mx-8 lg:mx-20">
         <Image
-        src="/images/about/carbanner.jpg"
+        src="/images/about/carbanner.JPG"
         alt="thincar"
-        width="2000"
-        height="1000"
+        width={2048}
+        height={477}
+        sizes="100vw"
         style={{ objectFit: "cover" }}
         className="w-full h-auto"
       />
@@ -53,10 +56,11 @@ export default function About() {
         <div className="flex flex-col md:flex-row flex-nowrap">
           <div className="pt-5 text-lg flex justify-center md:justify-start">
             <Image
-              src="/images/about/shelleco.png"
+              src="/images/about/shelleco.jpg"
               alt="shellecopic"
-              width="400"
-              height="400"
+              width={1024}
+              height={1820}
+              sizes="(min-width: 768px) 400px, 100vw"
               style={{ objectFit: "cover" }}
               className="w-full max-w-[400px] h-auto"
             />
