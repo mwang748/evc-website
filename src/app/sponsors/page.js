@@ -1,6 +1,6 @@
-import './sponsors.css';
+import "./sponsors.css";
 import Image from "next/image";
-import Link from 'next/link';
+import Link from "next/link";
 
 export const metadata = {
   title: "Our Sponsors — Illini EV Concept",
@@ -8,55 +8,60 @@ export const metadata = {
 };
 
 export default function Sponsors() {
-    return (
-        <div>
-            <div className='gradient-overlay'>
-                <Image
-                    src="/images/contacts/classiccarcropped.jpg"
-                    alt="Classic Car"
-                    width={5000}
-                    height={500}
-                />
-            </div>
-            <div className="section-header">
-                <h2 className="section-title">SPONSORS</h2>
-            </div>
+  return (
+    <div>
+      <div className="gradient-overlay">
+        <Image
+          src="/images/contacts/classiccarcropped.jpg"
+          alt="Classic Car"
+          width={5000}
+          height={500}
+        />
+      </div>
+      <div className="section-header">
+        <h2 className="section-title">SPONSORS</h2>
+      </div>
 
-            <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-20 mb-8 pt-12 md:pt-12">
-                <Image
-                    src="/images/sponsors/logo-700x400-Altium.png"
-                    alt="altium sponsor"
-                    width={500}
-                    height={300}
-                    className="w-[90%] md:w-auto max-w-[500px] h-auto"
-                />
-                <Image
-                    src="/images/sponsors/siemens-logo.png"
-                    alt="altair sponsor"
-                    width={500}
-                    height={300}
-                    className="w-[90%] md:w-auto max-w-[500px] h-auto"
-                />
-            </div>
+      <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-20 mb-8 pt-12 md:pt-12">
+        <Image
+          src="/images/sponsors/logo-700x400-Altium.png"
+          alt="altium sponsor"
+          width={500}
+          height={300}
+          className="w-[90%] md:w-auto max-w-[500px] h-auto"
+        />
+        <Image
+          src="/images/sponsors/siemens-logo.png"
+          alt="altair sponsor"
+          width={500}
+          height={300}
+          className="w-[90%] md:w-auto max-w-[500px] h-auto"
+        />
+      </div>
 
-            <div className="my-10 mx-5 md:my-20 md:mx-20 text-center text-sm lg:text-2xl">
-                <p>
-                    A huge thank you to all our sponsors! Your support has been essential in helping us achieve our
-                    goals and in fostering the education and experience of our members and community.
-                </p>
-                <p className="mt-5">
-                    If you're not yet a sponsor but are interested, we appreciate your consideration!
-                    Please review our sponsorship brochure and <Link href="/contacts" className="text-orange-300 underline">contact us</Link>.
-                </p>
-            </div>
+      <div className="my-10 mx-5 md:my-20 md:mx-20 text-center text-sm lg:text-2xl">
+        <p>
+          A huge thank you to all our sponsors! Your support has been essential
+          in helping us achieve our goals and in fostering the education and
+          experience of our members and community.
+        </p>
+        <p className="mt-5">
+          If you're not yet a sponsor but are interested, we appreciate your
+          consideration! Please review our sponsorship brochure and{" "}
+          <Link href="/contacts" className="text-orange-300 underline">
+            contact us
+          </Link>
+          .
+        </p>
+      </div>
 
-            <div className="flex justify-center mt-8 px-2 md:px-0">
-                <iframe
-                    src="https://evconcept.engr.illinois.edu/files/2024/09/Sponsorship_Brochure_2024-2025.pdf"
-                    className="w-full md:w-[95%] lg:w-[70%] h-[500px] md:h-[600px] lg:h-[800px] border-none"
-                    title="Sponsorship Brochure"
-                />
-            </div>
-        </div>
-    );
+      <div className="flex justify-center mt-8 px-2 md:px-0">
+        <iframe
+          src="Sponsorship Proposal.pdf"
+          className="w-full md:w-[95%] lg:w-[70%] h-[500px] md:h-[600px] lg:h-[800px] border-none"
+          title="Sponsorship Brochure"
+        />
+      </div>
+    </div>
+  );
 }
