@@ -57,7 +57,7 @@ export default function Sponsors() {
 
       <div className="flex justify-center mt-8 px-2 md:px-0">
         <iframe
-          src="Sponsorship Proposal.pdf"
+          src="Sponsorship_Proposal.pdf"
           className="w-full md:w-[95%] lg:w-[70%] h-[500px] md:h-[600px] lg:h-[800px] border-none"
           title="Sponsorship Brochure"
         />
