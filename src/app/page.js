@@ -19,8 +19,10 @@ export default function Home() {
         <Image
           src="/images/homepage/sunsetcar.JPG"
           alt="sunsetcar"
-          width="2000"
-          height="2"
+          width={2048}
+          height={1035}
+          priority
+          sizes="100vw"
           style={{ objectFit: "cover" }}
           className="relative z-0"
         />
@@ -38,8 +40,9 @@ export default function Home() {
       <Image
         src="/images/homepage/shellecocar.jpg"
         alt="carwflag"
-        width="2000"
-        height="2000"
+        width={2048}
+        height={701}
+        sizes="100vw"
         style={{ objectFit: "cover" }}
       />
       <div className="p-10 mb-12">
@@ -55,7 +58,7 @@ export default function Home() {
           <br></br>
           Through EV Concept, many of our club alumni have gained the technical
           and career skills they needed to join elite tech companies after they
-          graduated. If you're interested in getting personal mentorship in the
+          graduated. If you&apos;re interested in getting personal mentorship in the
           mechanical and electrical processes of designing a car as well as
           first-hand experience in projects to help create the car, join our
           Discord and follow our Instagram to learn more!

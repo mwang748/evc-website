@@ -1,478 +1,293 @@
-/* ===================================================
-   CARS TIMELINE — Horizontal Scroll with Progress Bar
-   Inspired by: how-it-works-scroll-horizontal.webflow.io
-   =================================================== */
+/*
+ * Cars timeline — vertical, plain-scroll layout.
+ *
+ * Replaces the old GSAP ScrollTrigger horizontal scroll-jack. Structural bits live
+ * here (the rail, the sticky chip bar, the media grid); typography and color follow
+ * the site tokens: #F7931E accent, #1A1A1A ground, Montserrat inherited from body.
+ */
 
-/* ---------- Wrapper (pinned section) ---------- */
-.tl-wrapper {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  background: #1A1A1A;
+/* Navbar is p-1.5 (6px) around a 60px logo. The chip bar parks directly under it. */
+:root {
+    --car-nav-h: 72px;
+    /* 0.75rem padding top + bottom + the 44px chip. No borders on the bar. */
+    --car-chipbar-h: 68px;
+    --car-accent: #F7931E;
 }
 
-/* ---------- Unified top bar (years + dots + progress) ---------- */
-.tl-topbar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 10;
-  padding: 1.25rem 3rem 0;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
+/* No `scroll-behavior: smooth` here on purpose — the chip bar animates the scroll
+   itself in page.js so it can offset for the sticky header, and a CSS smooth
+   behavior would fight the per-frame scrollTo calls that animation makes. */
+
+/* ---------- Year chip bar ---------- */
+
+.car-chipbar {
+    position: sticky;
+    top: var(--car-nav-h);
+    z-index: 40;
+    background: #1A1A1A;
 }
 
-.tl-topbar-labels {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  width: 100%;
+.car-chipbar-scroll {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    overflow-x: auto;
+    padding: 0.75rem 1rem;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
-.tl-topbar-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  flex: 1;
-  min-width: 0;
-}
-
-.tl-topbar-year {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.03em;
-  color: rgba(255, 255, 255, 0.2);
-  white-space: nowrap;
-  transition: color 0.4s ease, transform 0.3s ease;
-  cursor: default;
-}
-
-.tl-topbar-item-active .tl-topbar-year {
-  color: rgba(255, 255, 255, 0.55);
-}
-
-.tl-topbar-item-current .tl-topbar-year {
-  color: #F7931E;
-  transform: scale(1.1);
-}
-
-.tl-topbar-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #333;
-  border: 2px solid rgba(255, 255, 255, 0.15);
-  transition: background 0.35s ease, border-color 0.35s ease, transform 0.35s ease, box-shadow 0.35s ease;
-  flex-shrink: 0;
-  position: relative;
-  z-index: 2;
-}
-
-.tl-topbar-item-active .tl-topbar-dot {
-  background: #F7931E;
-  border-color: #F7931E;
-}
-
-.tl-topbar-item-current .tl-topbar-dot {
-  transform: scale(1.4);
-  box-shadow: 0 0 6px rgba(247, 147, 30, 0.5);
-}
-
-/* Progress track sits right behind the dots */
-.tl-topbar-track {
-  position: relative;
-  height: 3px;
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 2px;
-  overflow: hidden;
-  margin-top: -6.5px; /* vertically center with dots */
-  z-index: 1;
-}
-
-.tl-topbar-fill {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 0%;
-  background: linear-gradient(90deg, #F7931E, #ff6b00);
-  border-radius: 2px;
-  transition: width 0.1s linear;
-}
-
-/* ---------- Track (horizontal flex container) ---------- */
-.tl-track {
-  display: flex;
-  width: fit-content;
-  height: 100vh;
-}
-
-/* ---------- Panel (each viewport-wide section) ---------- */
-.tl-panel {
-  width: 100vw;
-  min-width: 100vw;
-  height: 100vh;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 5rem 4rem 6rem;
-}
-
-/* ---------- Card (image + text layout) ---------- */
-.tl-card {
-  display: flex;
-  align-items: center;
-  gap: 3rem;
-  max-width: 1200px;
-  width: 100%;
-}
-
-/* Text-only card: center the text block */
-.tl-card-text-only {
-  justify-content: center;
-}
-
-/* Single image card: give more space to the image */
-.tl-card-single-img .tl-images {
-  flex: 1 1 55%;
-}
-
-.tl-card-single-img .tl-text-block {
-  flex: 1 1 40%;
-}
-
-/* ---------- Image area (left side) ---------- */
-.tl-images {
-  flex: 1 1 50%;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Single image: let it fill the space */
-.tl-images-single {
-  justify-content: center;
-  align-items: center;
-}
-
-.tl-images-double {
-  gap: 0.75rem;
-}
-
-.tl-images-multi {
-  gap: 0.75rem;
-}
-
-/* ---------- Image sizing by count ---------- */
-.tl-img {
-  border-radius: 6px;
-  width: auto;
-  height: auto;
-  object-fit: cover;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(247, 147, 30, 0.15);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.tl-img:hover {
-  transform: scale(1.04) translateY(-3px);
-  box-shadow: 0 4px 12px rgba(247, 147, 30, 0.25);
-}
-
-/* Single image — large and prominent */
-.tl-img-single {
-  max-height: 380px;
-  max-width: 100%;
-  object-fit: contain;
-}
-
-/* Two images — side by side, medium size */
-.tl-img-double {
-  max-height: 280px;
-  max-width: 48%;
-  flex: 0 1 48%;
-  object-fit: cover;
-}
-
-/* Three or more images — compact grid */
-.tl-img-multi {
-  max-height: 200px;
-  max-width: 46%;
-  flex: 0 1 46%;
-  object-fit: cover;
-}
-
-/* If exactly 3 images, let the third one span wider */
-.tl-images-multi .tl-img-multi:nth-child(3):last-child {
-  max-width: 60%;
-  flex: 0 1 60%;
-  max-height: 180px;
-}
-
-.tl-video {
-  width: 100%;
-  max-width: 520px;
-  aspect-ratio: 16 / 9;
-  border-radius: 6px;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  border: none;
-}
-
-.tl-video iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-
-/* Inline video (local MP4 files within image grid) */
-.tl-video-inline {
-  border-radius: 6px;
-  width: auto;
-  height: auto;
-  object-fit: cover;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(247, 147, 30, 0.15);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  background: #000;
-}
-
-.tl-video-inline:hover {
-  transform: scale(1.04) translateY(-3px);
-  box-shadow: 0 4px 12px rgba(247, 147, 30, 0.25);
-}
-
-/* ---------- Text block (right side card) ---------- */
-.tl-text-block {
-  flex: 1 1 45%;
-  background: rgba(7, 64, 123, 0.18);
-  border: none;
-  border-radius: 10px;
-  padding: 2.5rem 2.5rem 2rem;
-  backdrop-filter: blur(12px);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-/* Centered text block when no images */
-.tl-text-block-centered {
-  flex: 0 1 600px;
-  max-width: 600px;
-  text-align: center;
-  align-items: center;
-}
-
-.tl-step-num {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.9rem;
-  font-weight: 800;
-  color: #F7931E;
-  letter-spacing: 0.05em;
-}
-
-.tl-year {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 2rem;
-  font-weight: 800;
-  color: #fff;
-  margin: 0;
-  line-height: 1.2;
-}
-
-.tl-desc {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1rem;
-  line-height: 1.75;
-  color: rgba(255, 255, 255, 0.75);
-  margin: 0;
-}
-
-.tl-link {
-  display: inline-block;
-  color: #F7931E;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.95rem;
-  font-weight: 600;
-  text-decoration: none;
-  border-bottom: 2px solid transparent;
-  transition: color 0.3s ease, border-color 0.3s ease;
-}
-
-.tl-link:hover {
-  color: #ff6b00;
-  border-bottom-color: #ff6b00;
-}
-
-/* (progress bar merged into top bar) */
-
-/* ===================================================
-   MOBILE — vertical stack, no horizontal scroll
-   =================================================== */
-@media screen and (max-width: 768px) {
-  .tl-wrapper {
-    height: auto;
-    overflow: visible;
-  }
-
-  .tl-topbar {
+.car-chipbar-scroll::-webkit-scrollbar {
     display: none;
-  }
-
-  .tl-track {
-    flex-direction: column;
-    width: 100%;
-    height: auto;
-  }
-
-  .tl-panel {
-    width: 100%;
-    min-width: 100%;
-    height: auto;
-    min-height: auto;
-    padding: 2rem 1.25rem;
-  }
-
-  .tl-card {
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .tl-images {
-    flex: none;
-    width: 100%;
-  }
-
-  .tl-img-single,
-  .tl-img-double,
-  .tl-img-multi,
-  .tl-video-inline {
-    max-width: 100%;
-    flex: 0 1 100%;
-    max-height: 260px;
-    border-radius: 5px;
-  }
-
-  .tl-img-double,
-  .tl-video-inline.tl-img-double {
-    max-width: 48%;
-    flex: 0 1 48%;
-  }
-
-  .tl-img-multi,
-  .tl-video-inline.tl-img-multi {
-    max-width: 48%;
-    flex: 0 1 48%;
-  }
-
-  .tl-images-multi .tl-img-multi:nth-child(3):last-child,
-  .tl-images-multi .tl-video-inline.tl-img-multi:nth-child(3):last-child {
-    max-width: 60%;
-    flex: 0 1 60%;
-  }
-
-  .tl-text-block {
-    flex: none;
-    width: 100%;
-    padding: 2rem 1.5rem;
-    border-radius: 8px;
-  }
-
-  .tl-text-block-centered {
-    max-width: 100%;
-  }
-
-  .tl-year {
-    font-size: 1.6rem;
-  }
-
-  .tl-desc {
-    font-size: 0.95rem;
-  }
-
-  .tl-video {
-    max-width: 100%;
-    height: 220px;
-  }
-
 }
 
-/* ===================================================
-   TABLET
-   =================================================== */
-@media screen and (min-width: 769px) and (max-width: 1024px) {
-  .tl-panel {
-    padding: 5rem 2.5rem 6rem;
-  }
+@media (min-width: 640px) {
+    .car-chipbar-scroll {
+        padding: 0.75rem 2rem;
+    }
+}
 
-  .tl-card {
-    gap: 2rem;
-  }
+@media (min-width: 1024px) {
+    .car-chipbar-scroll {
+        padding: 0.75rem 5rem;
+    }
+}
 
-  .tl-img-single,
-  .tl-video-inline.tl-img-single {
-    max-height: 300px;
-  }
+.car-chip {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    min-height: 44px;
+    padding: 0 0.85rem;
+    border: 1px solid rgba(247, 147, 30, 0.28);
+    border-radius: 999px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: #D6D6D6;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
 
-  .tl-img-double,
-  .tl-video-inline.tl-img-double {
-    max-height: 220px;
-  }
+.car-chip:hover,
+.car-chip:focus-visible {
+    color: #FFFFFF;
+    border-color: var(--car-accent);
+}
 
-  .tl-img-multi,
-  .tl-video-inline.tl-img-multi {
-    max-height: 160px;
-  }
+.car-chip-active {
+    background: var(--car-accent);
+    border-color: var(--car-accent);
+    color: #1A1A1A;
+}
 
-  .tl-text-block {
-    padding: 2rem;
-  }
+/* ---------- Timeline ---------- */
 
-  .tl-year {
+.car-timeline {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 3rem 1rem 4rem;
+}
+
+@media (min-width: 640px) {
+    .car-timeline {
+        padding: 3.5rem 2rem 5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .car-timeline {
+        padding: 4rem 5rem 6rem;
+    }
+}
+
+.car-entry {
+    display: flex;
+    /* Clear the sticky navbar + chip bar when a chip jumps to this entry. */
+    scroll-margin-top: calc(var(--car-nav-h) + var(--car-chipbar-h) + 16px);
+}
+
+/* ---------- The rail ---------- */
+
+.car-rail {
+    position: relative;
+    width: 22px;
+    flex-shrink: 0;
+}
+
+.car-rail-line {
+    position: absolute;
+    left: 10px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: rgba(247, 147, 30, 0.22);
+}
+
+/* The rail stops with the last node instead of trailing off the page. */
+.car-entry-last .car-rail-line {
+    bottom: auto;
+    height: 44px;
+}
+
+.car-rail-node {
+    position: absolute;
+    left: 4px;
+    top: 8px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--car-accent);
+    box-shadow: 0 0 0 4px #1A1A1A;
+}
+
+@media (min-width: 1024px) {
+    .car-rail {
+        width: 40px;
+    }
+
+    .car-rail-line {
+        left: 19px;
+    }
+
+    .car-rail-node {
+        left: 12px;
+        top: 10px;
+        width: 16px;
+        height: 16px;
+        box-shadow: 0 0 0 5px #1A1A1A;
+    }
+}
+
+/* ---------- Entry body ---------- */
+
+.car-entry-body {
+    flex: 1 1 auto;
+    min-width: 0;
+    padding: 0 0 3rem 0.75rem;
+}
+
+@media (min-width: 1024px) {
+    .car-entry-body {
+        display: flex;
+        gap: 3rem;
+        padding-bottom: 4rem;
+    }
+}
+
+.car-entry-text {
+    margin-bottom: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+    .car-entry-text {
+        width: 360px;
+        flex-shrink: 0;
+        margin-bottom: 0;
+        /* Holds position while this year's photos scroll past. */
+        position: sticky;
+        top: calc(var(--car-nav-h) + var(--car-chipbar-h) + 16px);
+        align-self: flex-start;
+    }
+
+    /* A year with no photos (2020-2021) gets the full width instead of a lone
+       narrow column stranded beside empty space. */
+    .car-entry-body > .car-entry-text:only-child {
+        position: static;
+        width: 100%;
+        max-width: 60ch;
+    }
+}
+
+.car-year {
+    margin: 0 0 0.4rem;
     font-size: 1.75rem;
-  }
-
-  .tl-topbar {
-    padding: 1rem 1.5rem 0;
-  }
-
-  .tl-topbar-year {
-    font-size: 0.55rem;
-  }
+    font-weight: 700;
+    color: #FFFFFF;
 }
 
-@media screen and (max-width: 480px) {
-  .tl-panel {
-    padding: 1.5rem 0.75rem;
-  }
-
-  .tl-text-block {
-    padding: 1.5rem 1.25rem;
-  }
-
-  .tl-year {
-    font-size: 1.4rem;
-  }
-
-  .tl-desc {
-    font-size: 0.9rem;
-    line-height: 1.6;
-  }
-
-  .tl-img-single,
-  .tl-img-double,
-  .tl-img-multi,
-  .tl-video-inline {
-    max-height: 220px;
-    border-radius: 4px;
-  }
+@media (min-width: 1024px) {
+    .car-year {
+        font-size: 2.125rem;
+    }
 }
+
+.car-year-rule {
+    display: block;
+    width: 48px;
+    height: 3px;
+    background: var(--car-accent);
+    margin-bottom: 1.1rem;
+}
+
+.car-blurb {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.65;
+    color: #CFCFCF;
+}
+
+@media (min-width: 1024px) {
+    .car-blurb {
+        font-size: 1.0625rem;
+    }
+}
+
+.car-links {
+    margin: 1rem 0 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* ---------- Media grid ---------- */
+
+.car-media {
+    flex: 1 1 auto;
+    min-width: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+}
+
+@media (min-width: 768px) {
+    .car-media {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.car-tile {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border: 1px solid rgba(247, 147, 30, 0.15);
+    border-radius: 6px;
+    background: #111111;
+}
+
+.car-tile-inner {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 0;
+}
+
+/* An odd trailing tile spans both columns so no row is left ragged. */
+@media (min-width: 768px) {
+    .car-tile-wide {
+        grid-column: span 2;
+        aspect-ratio: 8 / 3;
+    }
+}
+
+/* The YouTube embed keeps 16:9 at every width — this sits after .car-tile-wide
+   so it wins the aspect-ratio on the wide tile it shares a slot with. */
+.car-tile-embed {
+    aspect-ratio: 16 / 9;
+}
+
