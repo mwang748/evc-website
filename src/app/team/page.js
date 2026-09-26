@@ -25,7 +25,7 @@ export default function Team() {
       id: 3,
       picture: "/images/team/ethan_rybka.jpg",
       name: "Ethan Rybka",
-      position: "ELectrical Co-Lead",
+      position: "Electrical Co-Lead",
       info: "Electrical Engineering 2028"
     },
     {
@@ -75,7 +75,7 @@ export default function Team() {
       picture: "/images/team/michael.jpg",
       name: "Michael Wang",
       position: "Business Operations Lead",
-      info: "Computer Science + Astronomy 2026",
+      info: "Computer Science 2027",
     },
   ];
 
