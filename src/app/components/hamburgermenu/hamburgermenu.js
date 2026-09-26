@@ -62,7 +62,7 @@ export default function Nav() {
           <span></span>
         </div>
       </button>
-      {<Menu isOpen={isOpen} />}
+      <Menu isOpen={isOpen} setIsOpen={setIsOpen} />
     </nav>
   );
 }

@@ -46,7 +46,7 @@ export default function About() {
         Our interdisciplinary team of engineers is passionate about sustainable
         energy and committed to building the most energy-efficient electric
         vehicles possible, entirely from scratch. In fact, we strive to have all
-        of our car's components custom-built by our team, allowing for increased
+        of our car&apos;s components custom-built by our team, allowing for increased
         creativity and precision.
       </div>
       <div className="p-5 lg:p-10 mb-12">

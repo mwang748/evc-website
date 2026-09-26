@@ -58,7 +58,7 @@ export default function Home() {
           <br></br>
           Through EV Concept, many of our club alumni have gained the technical
           and career skills they needed to join elite tech companies after they
-          graduated. If you're interested in getting personal mentorship in the
+          graduated. If you&apos;re interested in getting personal mentorship in the
           mechanical and electrical processes of designing a car as well as
           first-hand experience in projects to help create the car, join our
           Discord and follow our Instagram to learn more!

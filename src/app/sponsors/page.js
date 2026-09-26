@@ -49,7 +49,7 @@ export default function Sponsors() {
                     goals and in fostering the education and experience of our members and community.
                 </p>
                 <p className="mt-5">
-                    If you're not yet a sponsor but are interested, we appreciate your consideration!
+                    If you&apos;re not yet a sponsor but are interested, we appreciate your consideration!
                     Please review our sponsorship brochure and <Link href="/contacts" className="text-orange-300 underline">contact us</Link>.
                 </p>
             </div>

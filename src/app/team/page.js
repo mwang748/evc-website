@@ -28,48 +28,6 @@ export default function Team() {
       position: "ELectrical Co-Lead",
       info: "Electrical Engineering 2028"
     },
-    // {
-    //   id: 3,
-    //   picture: "/images/team/anthony.jpg",
-    //   name: "Anthony Amella",
-    //   position: "Electrical Co-Lead",
-    //   info: "Electrical Engineering 2026",
-    // },
-    // {
-    //   id: 4,
-    //   picture: "/images/team/eric.jpg",
-    //   name: "Eric Vo",
-    //   position: "Electrical Co-Lead",
-    //   info: "Electrical Engineering 2026",
-    // },
-    // {
-    //   id: 4,
-    //   picture: "/images/team/eric.jpg",
-    //   name: "Eric Vo",
-    //   position: "Electrical Co-Lead",
-    //   info: "Electrical Engineering 2026",
-    // },
-    // {
-    //   id: 5,
-    //   picture: "/images/team/kathleen.jpg",
-    //   name: "Kathleen Lum",
-    //   position: "Electrical Co-Lead",
-    //   info: "Electrical Engineering 2026",
-    // },
-    // {
-    //   id: 6,
-    //   picture: "/images/team/haoming.jpg",
-    //   name: "Haoming Mei",
-    //   position: "Embedded Co-Lead",
-    //   info: "Computer Engineering 2026",
-    // },
-    // {
-    //   id: 7,
-    //   picture: null,
-    //   name: "Neil Deo",
-    //   position: "Embedded Co-Lead",
-    //   info: "Computer Engineering 2027",
-    // },
     {
       id: 4,
       picture: "/images/team/mithra_thratta.png",
@@ -84,20 +42,6 @@ export default function Team() {
       position: "Embedded Co-Lead",
       info: "Computer Engineering 2028"
     },
-    // {
-    //   id: 8,
-    //   picture: "/images/team/antheria.jpg",
-    //   name: "Antheria Jiang",
-    //   position: "Mechposites Co-Lead",
-    //   info: "Mechanical Engineering 2026",
-    // },
-    // {
-    //   id: 9,
-    //   picture: "/images/team/nick_mech.jpg",
-    //   name: "Nick Skweres",
-    //   position: "Mechposites Co-Lead",
-    //   info: "Mechanical Engineering 2026",
-    // },
     {
       id: 6,
       picture: "/images/team/alex_james.jpg",
@@ -112,13 +56,6 @@ export default function Team() {
       position: "Mechposites Co-Lead",
       info: "Mechanical Engineering 2027",
     },
-    // {
-    //   id: 10,
-    //   picture: "/images/team/sid.jpg",
-    //   name: "Siddharth Gupta",
-    //   position: "Autonomous Lead",
-    //   info: "Physics + Computer Science 2025",
-    // },
     {
       id: 8,
       picture: "/images/team/shayan_rahman.jpg",
@@ -133,13 +70,6 @@ export default function Team() {
       position: "Autonomous Co-Lead",
       info: "CS + Physics 2028",
     },
-    // {
-    //   id: 10,
-    //   picture: "/images/team/kathy.jpg",
-    //   name: "Kathryn Lee",
-    //   position: "Business Operations Co-Lead",
-    //   info: "Computer Science + Chemistry 2026",
-    // },
     {
       id: 10,
       picture: "/images/team/michael.jpg",
@@ -215,7 +145,7 @@ export default function Team() {
           Our members come from various majors to build skills in engineering,
           design, and business. With over 80 members, the dedication and
           creativity of our team are crucial to our success. Members and alums
-          have applied the skills they've gained to work at companies such as
+          have applied the skills they&apos;ve gained to work at companies such as
           Apple, John Deere, McMaster, SpaceX, Texas Instruments, Tesla, and
           more.
         </p>
