@@ -1,6 +1,7 @@
-html, body {
-  overflow-x: hidden;
-}
+/* No html/body overflow rule here: globals.css already sets `overflow-x: clip`.
+   `hidden` made html/body scroll containers and broke the sticky navbar — and
+   because page CSS stays loaded after client-side navigation, it broke it on every
+   page visited after /sponsors. */
 
 *{
     margin:0;

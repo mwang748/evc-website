@@ -3,7 +3,6 @@ import "../../../styles/globals.css";
 import "./hamburg.css";
 
 import Link from "next/link";
-import Image from "next/image";
 import { useState } from "react";
 
 function Menu({ isOpen, setIsOpen }) {
@@ -63,7 +62,7 @@ export default function Nav() {
           <span></span>
         </div>
       </button>
-      {<Menu isOpen={isOpen} />}
+      <Menu isOpen={isOpen} setIsOpen={setIsOpen} />
     </nav>
   );
 }
