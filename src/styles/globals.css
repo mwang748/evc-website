@@ -16,15 +16,19 @@
   }
 }
 
+/* `clip` rather than `hidden`: overflow-x:hidden forces overflow-y to `auto`, which
+   turns html/body into scroll containers and silently breaks `position: sticky`
+   against the viewport — including the navbar's own `sticky top-0`. `clip` does the
+   same horizontal clipping without creating a scroll container. */
 html {
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: Montserrat;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 .section-header {

@@ -13,8 +13,10 @@ export default function Contacts() {
         <Image
           src="/images/contacts/classiccarcropped.jpg"
           alt="Classic Car"
-          width={5000}
-          height={500}
+          width={2560}
+          height={480}
+          priority
+          sizes="100vw"
         />
       </div>
       <div className="section-header">
@@ -148,8 +150,10 @@ export default function Contacts() {
           <Image
             src="/images/group_banner.JPG"
             alt="Contact Us Illustration"
-            width={500}
-            height={500}
+            width={2048}
+            height={1130}
+            sizes="(min-width: 768px) 50vw, 100vw"
+            className="w-full h-auto"
           />
         </div>
       </div>

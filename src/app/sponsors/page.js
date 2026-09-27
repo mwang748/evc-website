@@ -14,8 +14,10 @@ export default function Sponsors() {
         <Image
           src="/images/contacts/classiccarcropped.jpg"
           alt="Classic Car"
-          width={5000}
-          height={500}
+          width={2560}
+          height={480}
+          priority
+          sizes="100vw"
         />
       </div>
       <div className="section-header">
@@ -28,6 +30,7 @@ export default function Sponsors() {
           alt="altium sponsor"
           width={500}
           height={300}
+          sizes="(min-width: 768px) 500px, 90vw"
           className="w-[90%] md:w-auto max-w-[500px] h-auto"
         />
         <Image
@@ -35,6 +38,7 @@ export default function Sponsors() {
           alt="altair sponsor"
           width={500}
           height={300}
+          sizes="(min-width: 768px) 500px, 90vw"
           className="w-[90%] md:w-auto max-w-[500px] h-auto"
         />
       </div>
@@ -46,7 +50,7 @@ export default function Sponsors() {
           experience of our members and community.
         </p>
         <p className="mt-5">
-          If you're not yet a sponsor but are interested, we appreciate your
+          If you&apos;re not yet a sponsor but are interested, we appreciate your
           consideration! Please review our sponsorship brochure and{" "}
           <Link href="/contacts" className="text-orange-300 underline">
             contact us
@@ -57,7 +61,7 @@ export default function Sponsors() {
 
       <div className="flex justify-center mt-8 px-2 md:px-0">
         <iframe
-          src="Sponsorship_Proposal.pdf"
+          src="/Sponsorship_Proposal.pdf"
           className="w-full md:w-[95%] lg:w-[70%] h-[500px] md:h-[600px] lg:h-[800px] border-none"
           title="Sponsorship Brochure"
         />
