@@ -1,9 +1,16 @@
-import nextVitals from "eslint-config-next/core-web-vitals";
+import { dirname } from "path";
+import { fileURLToPath } from "url";
+import { FlatCompat } from "@eslint/eslintrc";
 
-// Next 16 dropped `next lint` and ships eslint-config-next as a native flat config,
-// so the old FlatCompat wrapper around "next/core-web-vitals" no longer loads.
+// Next 15's eslint-config-next is a legacy (eslintrc) config, so it's loaded through
+// FlatCompat. (Next 16 ships a native flat config instead; if you upgrade back to 16,
+// switch this to `import nextVitals from "eslint-config-next/core-web-vitals"`.)
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const compat = new FlatCompat({ baseDirectory: __dirname });
+
 const eslintConfig = [
-  ...nextVitals,
+  ...compat.extends("next/core-web-vitals"),
   { ignores: [".next/**", "out/**", "build/**", "next-env.d.ts"] },
 ];
 
