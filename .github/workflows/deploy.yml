@@ -1,0 +1,64 @@
+# Build the site and publish it for the campus cPanel server.
+#
+#   push to master  ->  lint + build  ->  commit out/ to the `deploy` branch
+#   pull request    ->  lint + build only (catches broken code before it merges)
+#
+# cPanel never builds anything. Its Git Version Control has a clone of this repo
+# checked out on `deploy`; a cron job there runs "Update from Remote" + "Deploy HEAD
+# Commit" every 15 minutes, which runs deploy/cpanel.yml (shipped as .cpanel.yml)
+# to copy the files into public_html. Don't edit the `deploy` branch by hand.
+
+name: Build and deploy
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run build
+
+      - name: Publish out/ to the deploy branch
+        if: github.event_name != 'pull_request'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cp deploy/cpanel.yml out/.cpanel.yml
+          cd out
+          REMOTE="https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git init -q -b deploy
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # Build on top of the existing deploy branch so history only moves forward
+          # (cPanel's "Update from Remote" is a plain pull and can't take a force-push).
+          if git fetch -q --depth=1 "$REMOTE" deploy 2>/dev/null; then  # absent on first run
+            git reset -q --soft FETCH_HEAD
+          fi
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Built site is identical to what's on deploy; nothing to publish."
+            exit 0
+          fi
+          git commit -q -m "Deploy ${GITHUB_SHA::7}: $(git -C .. log -1 --format=%s)"
+          git push -q "$REMOTE" HEAD:deploy

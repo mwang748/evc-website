@@ -1,0 +1,12 @@
+# cPanel deployment tasks. The GitHub workflow copies this file to the root of the
+# `deploy` branch as .cpanel.yml; cPanel's "Deploy HEAD Commit" runs these commands
+# from the root of its clone (~/repositories/evc-website).
+#
+# Copies the built site into public_html, skipping the git metadata and this file.
+# It adds and overwrites files but never deletes: a page or image removed from the
+# site stays on the server until someone deletes it in File Manager.
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/evconcept/public_html/
+    - /bin/rsync -a --exclude=.git --exclude=.cpanel.yml ./ $DEPLOYPATH
