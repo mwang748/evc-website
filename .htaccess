@@ -1,0 +1,35 @@
+# Apache config for the campus cPanel host (evconcept.web.illinois.edu, also reached
+# as evconcept.engr.illinois.edu). `npm run build` copies this file into out/ along
+# with the rest of public/, so it is deployed to public_html with the site.
+
+# Next's static export writes its not-found page here.
+ErrorDocument 404 /404.html
+
+RewriteEngine On
+
+# Always serve over https.
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+# Paths from the old WordPress site, so existing links and search results still land.
+RewriteRule ^our-members/?$ /team/ [R=301,L]
+RewriteRule ^partners/?$ /sponsors/ [R=301,L]
+RewriteRule ^contact/?$ /contacts/ [R=301,L]
+
+# Caching: Next's /_next/static files have content hashes in their names, so they
+# can be cached forever. Pages are revalidated so a new deploy shows up right away.
+<IfModule mod_headers.c>
+  <If "%{REQUEST_URI} =~ m#^/_next/static/#">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </If>
+  <FilesMatch "\.(html|txt)$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+  <FilesMatch "\.(jpe?g|png|webp|avif|svg|ico|mp4|pdf)$">
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+</IfModule>
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain application/javascript application/json image/svg+xml
+</IfModule>
