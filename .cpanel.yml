@@ -5,8 +5,13 @@
 # Copies the built site into public_html, skipping the git metadata and this file.
 # It adds and overwrites files but never deletes: a page or image removed from the
 # site stays on the server until someone deletes it in File Manager.
+#
+# Permissions are set explicitly (dirs 755, files 644) instead of copied from the
+# clone: the clone is private (700/600), and copying that with `rsync -a` made
+# public_html and .htaccess unreadable to Apache — every page returned 403
+# "Server unable to read htaccess file" (2026-10-24). Owner/group aren't copied either.
 ---
 deployment:
   tasks:
     - export DEPLOYPATH=/home/evconcept/public_html/
-    - /bin/rsync -a --exclude=.git --exclude=.cpanel.yml ./ $DEPLOYPATH
+    - /bin/rsync -rltp --chmod=D755,F644 --exclude=.git --exclude=.cpanel.yml ./ $DEPLOYPATH

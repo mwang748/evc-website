@@ -4,4 +4,4 @@
 :HL["/_next/static/chunks/1oco-b2fcklz4.css","style"]
 2:[["children",{"s":"__PAGE__","h":160}]]
 1:[["children",{"s":"sponsors","h":64,"c":"$Q2"}]]
-0:{"b":"uBsGh5zXD8OMdQpkRF8L2","t":{"t":{"s":"","h":16,"c":"$Q1"}}}
+0:{"b":"4fN9BGXAwHb66Lw5j9eq9","t":{"t":{"s":"","h":16,"c":"$Q1"}}}
