@@ -1,15 +1,17 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Hosted as plain files on the campus cPanel server (evconcept.web.illinois.edu),
+  // which can't run this app (its newest Node is 18). `npm run build` writes the whole
+  // site to out/ as static HTML/CSS/JS; GitHub Actions publishes out/ to the `deploy`
+  // branch and cPanel copies it into public_html. See .github/workflows/deploy.yml.
+  output: "export",
+  // Writes /team as team/index.html so Apache serves /team/ without rewrite rules.
+  trailingSlash: true,
   images: {
-    // AVIF is off by default in Next 16; it's typically 20-30% smaller than WebP.
-    formats: ["image/avif", "image/webp"],
-    // No source image is wider than 2560 after scripts/optimize-images.mjs, so the
-    // default ladder up to 3840 would only ever produce upscaled variants.
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2560],
-    // Headshots render in a 256px circle; subteam graphics at ~448px.
-    imageSizes: [128, 256, 384, 512, 900],
-    // These images effectively never change, so cache the transforms hard.
-    minimumCacheTTL: 60 * 60 * 24 * 365,
+    // Next's on-the-fly image resizing needs a running server, which cPanel doesn't
+    // have, so images are served as-is. scripts/optimize-images.mjs already caps
+    // their size (team 512px, cars 1200px, heroes 2560px).
+    unoptimized: true,
   },
 };
 
