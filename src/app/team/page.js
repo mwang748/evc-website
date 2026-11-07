@@ -166,11 +166,11 @@ export default function Team() {
         </h1>
         {/* People */}
         <div className="p-3 sm:p-4 md:p-6 in-h-screen">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
             {items.map((item) => (
               <div
                 key={item.id}
-                className="rounded-lg p-2 transition-shadow duration-300"
+                className="w-full sm:w-[calc(50%-12px)] lg:w-[calc((100%-48px)/3)] rounded-lg p-2 transition-shadow duration-300"
                 // style={{ backgroundColor: '#07407b' }}
               >
                 <div className="flex flex-col items-center text-center">
